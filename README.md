@@ -1,4 +1,4 @@
-<h1>Bogen om C# + Ekstra Opgaver</h1>
+<h1>Bogen om C# - Ekstra Opgaver</h1>
 Jeg har med glæde læst Michell Cronberg´s online Bog "Bogen om C#" 
 
 https://mcronberg.github.io/bogenomcsharp/ 
