@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C39C3AE8-FFD7-478B-8F52-D50BE29E6CF0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Library_s_Lending_Administration</RootNamespace>
+    <AssemblyName>Library%27s Lending Administration</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Sqlite, Version=8.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.Sqlite.Core.8.0.4\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.1.8.2226, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.bundle_e_sqlite3.2.1.8\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.8.2226, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.core.2.1.8\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.8.2226, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.8\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminAdultBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAdultBooksForm.Designer.cs">
+      <DependentUpon>AdminAdultBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCartoonsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCartoonsForm.Designer.cs">
+      <DependentUpon>AdminCartoonsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCDsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCDsForm.Designer.cs">
+      <DependentUpon>AdminCDsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminChildrenBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminChildrenBooksForm.Designer.cs">
+      <DependentUpon>AdminChildrenBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDVDMoviesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDVDMoviesForm.Designer.cs">
+      <DependentUpon>AdminDVDMoviesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminRecordsForm.Designer.cs">
+      <DependentUpon>AdminRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUserForm.Designer.cs">
+      <DependentUpon>AdminUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LoadData.cs" />
+    <Compile Include="Data\Load\LoadAdultBooks.cs" />
+    <Compile Include="Data\Load\LoadCartoons.cs" />
+    <Compile Include="Data\Load\LoadCDs.cs" />
+    <Compile Include="Data\Load\LoadChildrenBooks.cs" />
+    <Compile Include="Data\Load\LoadDVDMovies.cs" />
+    <Compile Include="Data\Load\LoadForum.cs" />
+    <Compile Include="Data\Load\LoadLendings.cs" />
+    <Compile Include="Data\Load\LoadPayments.cs" />
+    <Compile Include="Data\Load\LoadPerson.cs" />
+    <Compile Include="Data\Load\LoadRecords.cs" />
+    <Compile Include="Data\SetUpData.cs" />
+    <Compile Include="Data\SetUp\SetUpAdultBooks.cs" />
+    <Compile Include="Data\SetUp\SetUpCartoons.cs" />
+    <Compile Include="Data\SetUp\SetUpCDs.cs" />
+    <Compile Include="Data\SetUp\SetUpChildrenBooks.cs" />
+    <Compile Include="Data\SetUp\SetUpDVDMovies.cs" />
+    <Compile Include="Data\SetUp\SetUpForum.cs" />
+    <Compile Include="Data\SetUp\SetUpLendings.cs" />
+    <Compile Include="Data\SetUp\SetUpPayments.cs" />
+    <Compile Include="Data\SetUp\SetUpPerson.cs" />
+    <Compile Include="Data\SetUp\SetUpRecords.cs" />
+    <Compile Include="Lending\AdultBooks.cs" />
+    <Compile Include="Lending\Cartoons.cs" />
+    <Compile Include="Lending\CDs.cs" />
+    <Compile Include="Lending\ChildrenBooks.cs" />
+    <Compile Include="Lending\DVDMovies.cs" />
+    <Compile Include="Lending\Forum.cs" />
+    <Compile Include="Lending\Lendings.cs" />
+    <Compile Include="Lending\LendingShared.cs" />
+    <Compile Include="Lending\SaveToCSV.cs" />
+    <Compile Include="Shared\ForumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\ForumForm.Designer.cs">
+      <DependentUpon>ForumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Payments.cs" />
+    <Compile Include="Shared\Person.cs" />
+    <Compile Include="Lending\Records.cs" />
+    <Compile Include="Shared\ShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\ShowForm.Designer.cs">
+      <DependentUpon>ShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\UserCDsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserCDsForm.Designer.cs">
+      <DependentUpon>UserCDsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDVDMoviesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserDVDMoviesForm.Designer.cs">
+      <DependentUpon>UserDVDMoviesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserRecordsForm.Designer.cs">
+      <DependentUpon>UserRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserAdultBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserAdultBooksForm.Designer.cs">
+      <DependentUpon>UserAdultBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserCartoonsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserCartoonsForm.Designer.cs">
+      <DependentUpon>UserCartoonsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserChildrenBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserChildrenBooksForm.Designer.cs">
+      <DependentUpon>UserChildrenBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserDataForm.Designer.cs">
+      <DependentUpon>UserDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\AdminAdultBooksForm.resx">
+      <DependentUpon>AdminAdultBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminCartoonsForm.resx">
+      <DependentUpon>AdminCartoonsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminCDsForm.resx">
+      <DependentUpon>AdminCDsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminChildrenBooksForm.resx">
+      <DependentUpon>AdminChildrenBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminDVDMoviesForm.resx">
+      <DependentUpon>AdminDVDMoviesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminRecordsForm.resx">
+      <DependentUpon>AdminRecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminUserForm.resx">
+      <DependentUpon>AdminUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Shared\ForumForm.resx">
+      <DependentUpon>ForumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\ShowForm.resx">
+      <DependentUpon>ShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserCDsForm.resx">
+      <DependentUpon>UserCDsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserDVDMoviesForm.resx">
+      <DependentUpon>UserDVDMoviesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserRecordsForm.resx">
+      <DependentUpon>UserRecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserAdultBooksForm.resx">
+      <DependentUpon>UserAdultBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserCartoonsForm.resx">
+      <DependentUpon>UserCartoonsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserChildrenBooksForm.resx">
+      <DependentUpon>UserChildrenBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserDataForm.resx">
+      <DependentUpon>UserDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
