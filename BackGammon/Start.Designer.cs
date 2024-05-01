@@ -70,6 +70,7 @@
             pictureBoxTurnBlack = new PictureBox();
             pictureBoxTurnWhite = new PictureBox();
             labelTurn = new Label();
+            labelVersion = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBoard).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBlack_1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWhite_1).BeginInit();
@@ -475,11 +476,21 @@
             labelTurn.TabIndex = 41;
             labelTurn.Text = "Turn:";
             // 
+            // labelVersion
+            // 
+            labelVersion.AutoSize = true;
+            labelVersion.Location = new Point(812, 759);
+            labelVersion.Name = "labelVersion";
+            labelVersion.Size = new Size(173, 15);
+            labelVersion.TabIndex = 42;
+            labelVersion.Text = "Under Construction: Version 1.0";
+            // 
             // Start
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 801);
+            Controls.Add(labelVersion);
             Controls.Add(labelTurn);
             Controls.Add(pictureBoxTurnWhite);
             Controls.Add(pictureBoxTurnBlack);
@@ -604,5 +615,6 @@
         private PictureBox pictureBoxTurnBlack;
         private PictureBox pictureBoxTurnWhite;
         private Label labelTurn;
+        private Label labelVersion;
     }
 }
