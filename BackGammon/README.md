@@ -3,9 +3,7 @@
 Jeg har forsøgt at lave en Gui til et BackGammon spil, og det grafiske blev da oså fint nok.
 Gunden til at jeg har link til hvor jeg har hentet bilderne er at jeg skal gøre det når jeg downloader dem gratis. Det står i licensen.
 
-Jeg ville have det til at virke så jeg fik en MessageBox om jeg kunne flytte en brik, dvs om den lå yderst på feltet, det virkede på et tidspunkt på punkt et, men nu virker det ikke mere, 
-ingen brikker får lov at flytte nu.
-
+Jeg ville have det til at virke så jeg fik en MessageBox om jeg kunne flytte en brik, dvs om den lå yderst på feltet, det virker nu.
 Jeg har valgt at ligge GUI op da andre kan bruge den som starter kode.
 
 Jeg kan få fat i og trykke på alle brikkerne, og jeg kan få fat i hvilket felt de står på og hvilken farve de har og hvilket briknr de har.
