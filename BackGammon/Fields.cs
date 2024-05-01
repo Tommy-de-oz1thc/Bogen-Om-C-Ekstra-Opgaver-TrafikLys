@@ -9,7 +9,7 @@ namespace BackGammon
 {
     public class Fields
     {
-        private static List<Bricks> listBricks = new List<Bricks>();
+        private List<Bricks> listBricks = new List<Bricks>();
         public BrickColor colorBricksonField { set; get; }
         public int NR { set; get; }
         public Fields(int nr) { 

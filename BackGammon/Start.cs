@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Drawing.Text;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace BackGammon
@@ -230,516 +232,173 @@ namespace BackGammon
         }
 
 
+        private bool CanMoveBrick(int fieldNumber, Bricks brick, List<Bricks> brickList)
+        {
+           
+
+            // Tjek om der er nogen brikker på feltet
+            if (brickList.Count > 0)
+            {
+                // Hent den sidste brik på feltet
+                Bricks lastBrick = brickList[brickList.Count - 1];
+
+                // Tjek om den sidste brik er den samme som den aktuelle brik
+                if (lastBrick.BrickNr == brick.BrickNr)
+                {
+                    MessageBox.Show("You can move.");
+                    return true; // Brikken må flyttes, da den er den sidste på feltet
+                }
+            }
+            MessageBox.Show("You can not move");
+            return false; // Brikken må ikke flyttes
+        }
 
 
 
         private void pictureBoxWhite_1_Click(object sender, EventArgs e)
         {
           
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick1.Field;
+         
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(0, Settings.brick1, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
-                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                List<Bricks> brickList = Settings.field1.GetListBricks();
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(1, Settings.brick1, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(2, Settings.brick1, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(3, Settings.brick1, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(4, Settings.brick1, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(5, Settings.brick1, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(6, Settings.brick1, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(7, Settings.brick1, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(8, Settings.brick1, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(9, Settings.brick1, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(10, Settings.brick1, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(11, Settings.brick1, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(12, Settings.brick1, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(13, Settings.brick1, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(14, Settings.brick1, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(15, Settings.brick1, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(16, Settings.brick1, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(17, Settings.brick1, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(18, Settings.brick1, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(19, Settings.brick1, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(202, Settings.brick1, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(21, Settings.brick1, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(22, Settings.brick1, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(23, Settings.brick1, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(24, Settings.brick1, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(25, Settings.brick1, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(26, Settings.brick1, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(27, Settings.brick1, brickList));
             }
            
             
@@ -747,2565 +406,734 @@ namespace BackGammon
         }
         private void pictureBoxWhite_2_Click(object sender, EventArgs e)
         {
-            int fieldknr = Settings.brick2.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick2.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(0, Settings.brick2, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 List<Bricks> brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
 
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(1, Settings.brick2, brickList));
+
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(2, Settings.brick2, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(3, Settings.brick2, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(4, Settings.brick2, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(5, Settings.brick2, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(6, Settings.brick2, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(7, Settings.brick2, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(8, Settings.brick2, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(9, Settings.brick2, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(10, Settings.brick2, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(11, Settings.brick2, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(12, Settings.brick2, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(13, Settings.brick2, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(14, Settings.brick2, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(52, Settings.brick2, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(16, Settings.brick2, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(17, Settings.brick2, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(18, Settings.brick2, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(19, Settings.brick2, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(20, Settings.brick2, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(21, Settings.brick2, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(22, Settings.brick2, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(23, Settings.brick2, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(24, Settings.brick2, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(25, Settings.brick2, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(26, Settings.brick2, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick2.Field.ToString() + " " + CanMoveBrick(27, Settings.brick2, brickList));
             }
 
         }
-
-
-
-
 
 
         private void pictureBoxWhite_3_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick3.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(0, Settings.brick3, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(1, Settings.brick3, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(2, Settings.brick3, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(3, Settings.brick3, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(4, Settings.brick3, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
-                brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(5, Settings.brick3, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(6, Settings.brick3, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(7, Settings.brick3, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(8, Settings.brick3, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(9, Settings.brick3, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(10, Settings.brick3, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(11, Settings.brick3, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(12, Settings.brick3, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(13, Settings.brick3, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(14, Settings.brick3, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(15, Settings.brick3, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(16, Settings.brick3, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(17, Settings.brick3, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(18, Settings.brick3, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(19, Settings.brick3, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(20, Settings.brick3, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(21, Settings.brick3, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(22, Settings.brick3, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(23, Settings.brick3, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(24, Settings.brick3, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(24, Settings.brick3, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(26, Settings.brick3, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick3.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick3.Field.ToString() + " " + CanMoveBrick(27, Settings.brick3, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_4_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick4.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(0, Settings.brick4, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(1, Settings.brick4, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(2, Settings.brick4, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(3, Settings.brick4, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(4, Settings.brick4, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(5, Settings.brick4, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(6, Settings.brick4, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(7, Settings.brick4, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(8, Settings.brick4, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(9, Settings.brick4, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(10, Settings.brick4, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(11, Settings.brick4, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(12, Settings.brick4, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(13, Settings.brick4, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(14, Settings.brick4, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(15, Settings.brick4, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(16, Settings.brick4, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(17, Settings.brick4, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(18, Settings.brick4, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(19, Settings.brick4, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(20, Settings.brick4, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(21, Settings.brick4, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(22, Settings.brick4, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(23, Settings.brick4, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(24, Settings.brick4, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(25, Settings.brick4, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(26, Settings.brick4, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick4.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick4.Field.ToString() + " " + CanMoveBrick(27, Settings.brick4, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_5_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick5.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(0, Settings.brick5, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(1, Settings.brick5, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(2, Settings.brick5, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(3, Settings.brick5, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(4, Settings.brick5, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(5, Settings.brick5, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(6, Settings.brick5, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(7, Settings.brick5, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(8, Settings.brick5, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(9, Settings.brick5, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(10, Settings.brick5, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(11, Settings.brick5, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(12, Settings.brick5, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(13, Settings.brick5, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(14, Settings.brick5, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(15, Settings.brick5, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(16, Settings.brick5, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(17, Settings.brick5, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(18, Settings.brick5, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(19, Settings.brick5, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(20, Settings.brick5, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(21, Settings.brick5, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(22, Settings.brick5, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(23, Settings.brick5, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(24, Settings.brick5, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(25, Settings.brick5, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(26, Settings.brick5, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick5.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick5.Field.ToString() + " " + CanMoveBrick(27, Settings.brick5, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_6_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick6.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(0, Settings.brick6, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(1, Settings.brick6, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(2, Settings.brick6, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(3, Settings.brick6, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(4, Settings.brick6, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(5, Settings.brick6, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(6, Settings.brick6, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(7, Settings.brick6, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(8, Settings.brick6, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(9, Settings.brick6, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(10, Settings.brick6, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(11, Settings.brick6, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(12, Settings.brick6, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(13, Settings.brick6, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(14, Settings.brick6, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(15, Settings.brick6, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(16, Settings.brick6, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(17, Settings.brick6, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(18, Settings.brick6, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(19, Settings.brick6, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(20, Settings.brick6, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(21, Settings.brick6, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(22, Settings.brick6, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(23, Settings.brick6, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(24, Settings.brick6, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(25, Settings.brick6, brickList));
+                
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
-            }
-            if (fieldknr == 27)
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(26, Settings.brick6, brickList));
+            } 
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick6.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(27, Settings.brick6, brickList));
             }
 
 
@@ -3315,12312 +1143,3505 @@ namespace BackGammon
         private void pictureBoxWhite_7_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick7.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(0, Settings.brick7, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(1, Settings.brick7, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(2, Settings.brick7, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(3, Settings.brick7, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(4, Settings.brick7, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(5, Settings.brick7, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(6, Settings.brick7, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(7, Settings.brick7, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(8, Settings.brick7, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(9, Settings.brick7, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(10, Settings.brick7, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(11, Settings.brick7, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(12, Settings.brick7, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(13, Settings.brick7, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(14, Settings.brick7, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(15, Settings.brick7, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(16, Settings.brick7, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(17, Settings.brick7, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(18, Settings.brick7, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(19, Settings.brick7, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(20, Settings.brick7, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(21, Settings.brick7, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(22, Settings.brick7, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(23, Settings.brick7, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(24, Settings.brick7, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(25, Settings.brick7, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(26, Settings.brick7, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick7.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick7.Field.ToString() + " " + CanMoveBrick(27, Settings.brick7, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_8_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick8.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(0, Settings.brick8, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(1, Settings.brick8, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(2, Settings.brick8, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(3, Settings.brick8, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(4, Settings.brick8, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(5, Settings.brick8, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(6, Settings.brick8, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(7, Settings.brick8, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(8, Settings.brick8, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(9, Settings.brick8, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(10, Settings.brick8, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(11, Settings.brick8, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(12, Settings.brick8, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(13, Settings.brick8, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(14, Settings.brick8, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(15, Settings.brick8, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(16, Settings.brick8, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(17, Settings.brick8, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(18, Settings.brick8, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(19, Settings.brick8, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(20, Settings.brick8, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(21, Settings.brick8, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(22, Settings.brick8, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(23, Settings.brick8, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(24, Settings.brick8, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(25, Settings.brick8, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(26, Settings.brick8, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick8.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick8.Field.ToString() + " " + CanMoveBrick(27, Settings.brick8, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_9_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick9.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(0, Settings.brick9, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(1, Settings.brick9, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(2, Settings.brick9, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(3, Settings.brick9, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(4, Settings.brick9, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(5, Settings.brick9, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(6, Settings.brick9, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(7, Settings.brick9, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(8, Settings.brick9, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(9, Settings.brick9, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(10, Settings.brick9, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(11, Settings.brick9, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(12, Settings.brick9, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(13, Settings.brick9, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(14, Settings.brick9, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(15, Settings.brick9, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(16, Settings.brick9, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(17, Settings.brick9, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(18, Settings.brick9, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(19, Settings.brick9, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(20, Settings.brick9, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(21, Settings.brick9, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(22, Settings.brick9, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(23, Settings.brick9, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(24, Settings.brick9, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(25, Settings.brick9, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(26, Settings.brick9, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick9.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick9.Field.ToString() + " " + CanMoveBrick(27, Settings.brick9, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_10_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick10.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(0, Settings.brick10, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(1, Settings.brick10, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(2, Settings.brick10, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(3, Settings.brick10, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(4, Settings.brick10, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(5, Settings.brick10, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(6, Settings.brick10, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(7, Settings.brick10, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(8, Settings.brick10, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(9, Settings.brick10, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(10, Settings.brick10, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 10];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(11, Settings.brick10, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(12, Settings.brick10, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(13, Settings.brick10, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(14, Settings.brick10, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(15, Settings.brick10, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(16, Settings.brick10, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(17, Settings.brick10, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(18, Settings.brick10, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(19, Settings.brick10, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(20, Settings.brick10, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(21, Settings.brick10, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(22, Settings.brick10, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(23, Settings.brick10, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(24, Settings.brick10, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(25, Settings.brick10, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(26, Settings.brick10, brickList));
             }
-             if (fieldknr == 27)
+             if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick10.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick10.Field.ToString() + " " + CanMoveBrick(27, Settings.brick10, brickList));
             }
-
-
-
         }
+
         private void pictureBoxWhite_11_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick11.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(0, Settings.brick11, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(1, Settings.brick11, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(2, Settings.brick11, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(3, Settings.brick11, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(4, Settings.brick11, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(5, Settings.brick11, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(6, Settings.brick11, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(7, Settings.brick11, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(8, Settings.brick11, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(9, Settings.brick11, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(10, Settings.brick11, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(11, Settings.brick11, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(12, Settings.brick11, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(13, Settings.brick11, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(14, Settings.brick11, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(15, Settings.brick11, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(16, Settings.brick11, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(17, Settings.brick11, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(18, Settings.brick11, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(19, Settings.brick11, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(20, Settings.brick11, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(21, Settings.brick11, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(22, Settings.brick11, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(23, Settings.brick11, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(24, Settings.brick11, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(25, Settings.brick11, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(26, Settings.brick11, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick11.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick11.Field.ToString() + " " + CanMoveBrick(27, Settings.brick11, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_12_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick12.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(0, Settings.brick12, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(1, Settings.brick12, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(2, Settings.brick12, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(3, Settings.brick12, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(4, Settings.brick12, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(5, Settings.brick12, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(6, Settings.brick12, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(7, Settings.brick12, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(8, Settings.brick12, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(9, Settings.brick12, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(10, Settings.brick12, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(11, Settings.brick12, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(12, Settings.brick12, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(13, Settings.brick12, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(14, Settings.brick12, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(15, Settings.brick12, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(16, Settings.brick12, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(17, Settings.brick12, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(18, Settings.brick12, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(19, Settings.brick12, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(20, Settings.brick12, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(21, Settings.brick12, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(22, Settings.brick12, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(23, Settings.brick12, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(24, Settings.brick12, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(25, Settings.brick12, brickList));
             }
-             if (fieldknr == 26)
+             if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(26, Settings.brick12, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick12.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick12.Field.ToString() + " " + CanMoveBrick(27, Settings.brick12, brickList));
             }
-
-
-
         }
+
         private void pictureBoxWhite_13_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick13.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(0, Settings.brick13, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(1, Settings.brick13, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(2, Settings.brick13, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(3, Settings.brick13, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(4, Settings.brick13, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(5, Settings.brick13, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(6, Settings.brick13, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(7, Settings.brick13, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(8, Settings.brick13, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(9, Settings.brick13, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(10, Settings.brick13, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(11, Settings.brick13, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(12, Settings.brick13, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(13, Settings.brick13, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(14, Settings.brick13, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(15, Settings.brick13, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(16, Settings.brick13, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(17, Settings.brick13, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(18, Settings.brick13, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(19, Settings.brick13, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(20, Settings.brick13, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(21, Settings.brick13, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(22, Settings.brick13, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(23, Settings.brick13, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(24, Settings.brick13, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(25, Settings.brick13, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(26, Settings.brick13, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick13.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick13.Field.ToString() + " " + CanMoveBrick(27, Settings.brick13, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_14_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick14.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(0, Settings.brick14, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(1, Settings.brick14, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(2, Settings.brick14, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(3, Settings.brick14, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(4, Settings.brick14, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(5, Settings.brick14, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(6, Settings.brick14, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(7, Settings.brick14, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(8, Settings.brick14, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(9, Settings.brick14, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(10, Settings.brick14, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(11, Settings.brick14, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(12, Settings.brick14, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(13, Settings.brick14, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(14, Settings.brick14, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(15, Settings.brick14, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(16, Settings.brick14, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(17, Settings.brick14, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(18, Settings.brick14, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(19, Settings.brick14, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(20, Settings.brick14, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(21, Settings.brick14, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(22, Settings.brick14, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(23, Settings.brick14, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(24, Settings.brick14, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(25, Settings.brick14, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(26, Settings.brick14, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick14.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick14.Field.ToString() + " " + CanMoveBrick(27, Settings.brick14, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_15_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick15.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(0, Settings.brick15, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(1, Settings.brick15, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(2, Settings.brick15, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(3, Settings.brick15, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(4, Settings.brick15, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(5, Settings.brick15, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(6, Settings.brick15, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(7, Settings.brick15, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(8, Settings.brick15, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(9, Settings.brick15, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(10, Settings.brick15, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(11, Settings.brick15, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(12, Settings.brick15, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(13, Settings.brick15, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(14, Settings.brick15, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(15, Settings.brick15, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(16, Settings.brick15, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(17, Settings.brick15, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(18, Settings.brick15, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(19, Settings.brick15, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(20, Settings.brick15, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(21, Settings.brick15, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(22, Settings.brick15, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(23, Settings.brick15, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(24, Settings.brick15, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(25, Settings.brick15, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(26, Settings.brick15, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick15.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(27, Settings.brick15, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_1_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick16.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(0, Settings.brick16, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(1, Settings.brick16, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(2, Settings.brick16, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(3, Settings.brick16, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(4, Settings.brick16, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(5, Settings.brick16, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(6, Settings.brick16, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(7, Settings.brick16, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(8, Settings.brick16, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(9, Settings.brick16, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(10, Settings.brick16, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(11, Settings.brick16, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(12, Settings.brick16, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(13, Settings.brick16, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(14, Settings.brick16, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(15, Settings.brick16, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(16, Settings.brick16, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(17, Settings.brick16, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(18, Settings.brick16, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(19, Settings.brick16, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(20, Settings.brick16, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(21, Settings.brick16, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(22, Settings.brick16, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(23, Settings.brick16, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(24, Settings.brick16, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(25, Settings.brick16, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(26, Settings.brick16, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick16.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick16.Field.ToString() + " " + CanMoveBrick(27, Settings.brick16, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_2_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick17.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(0, Settings.brick17, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(1, Settings.brick17, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(2, Settings.brick17, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(3, Settings.brick17, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(4, Settings.brick17, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(5, Settings.brick17, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(6, Settings.brick17, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(7, Settings.brick17, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(8, Settings.brick17, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(9, Settings.brick17, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(10, Settings.brick17, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(11, Settings.brick17, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(12, Settings.brick17, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(13, Settings.brick17, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(14, Settings.brick17, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(15, Settings.brick17, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(16, Settings.brick17, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(17, Settings.brick17, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(18, Settings.brick17, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(19, Settings.brick17, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(20, Settings.brick17, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(21, Settings.brick17, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(22, Settings.brick17, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(23, Settings.brick17, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(24, Settings.brick17, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(25, Settings.brick17, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(26, Settings.brick17, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick17.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick17.Field.ToString() + " " + CanMoveBrick(27, Settings.brick17, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_3_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick18.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(0, Settings.brick18, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
-            }
-            if (fieldknr == 2)
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(1, Settings.brick18, brickList));
+            }    
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(2, Settings.brick18, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(3, Settings.brick18, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(4, Settings.brick18, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(5, Settings.brick18, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(6, Settings.brick18, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(7, Settings.brick18, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(8, Settings.brick18, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(9, Settings.brick18, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(10, Settings.brick18, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(11, Settings.brick18, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(12, Settings.brick18, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(13, Settings.brick18, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(14, Settings.brick18, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(15, Settings.brick18, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(16, Settings.brick18, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(17, Settings.brick18, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(18, Settings.brick18, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(19, Settings.brick18, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(20, Settings.brick18, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(21, Settings.brick18, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(22, Settings.brick18, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(23, Settings.brick18, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(24, Settings.brick18, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(25, Settings.brick18, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(26, Settings.brick18, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick18.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick18.Field.ToString() + " " + CanMoveBrick(27, Settings.brick18, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_4_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick19.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(0, Settings.brick19, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(1, Settings.brick19, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(2, Settings.brick19, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(3, Settings.brick19, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(4, Settings.brick19, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(5, Settings.brick19, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(6, Settings.brick19, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(7, Settings.brick19, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(8, Settings.brick19, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(9, Settings.brick19, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(10, Settings.brick19, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(11, Settings.brick19, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(12, Settings.brick19, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(13, Settings.brick19, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(14, Settings.brick19, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(15, Settings.brick19, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(16, Settings.brick19, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(17, Settings.brick19, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(18, Settings.brick19, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(19, Settings.brick19, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(20, Settings.brick19, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(21, Settings.brick19, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(22, Settings.brick19, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(23, Settings.brick19, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(24, Settings.brick19, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(25, Settings.brick19, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(26, Settings.brick19, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick19.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick19.Field.ToString() + " " + CanMoveBrick(27, Settings.brick19, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_5_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick20.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(0, Settings.brick20, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(1, Settings.brick20, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(2, Settings.brick20, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(3, Settings.brick20, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(4, Settings.brick20, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(5, Settings.brick20, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(6, Settings.brick20, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(7, Settings.brick20, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(8, Settings.brick20, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(9, Settings.brick20, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(10, Settings.brick20, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(11, Settings.brick20, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(12, Settings.brick20, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(13, Settings.brick20, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(14, Settings.brick20, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(15, Settings.brick20, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(16, Settings.brick20, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(17, Settings.brick20, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(18, Settings.brick20, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(19, Settings.brick20, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(20, Settings.brick20, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(21, Settings.brick20, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(22, Settings.brick20, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(23, Settings.brick20, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(24, Settings.brick20, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(25, Settings.brick20, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(26, Settings.brick20, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick20.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick20.Field.ToString() + " " + CanMoveBrick(27, Settings.brick20, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_6_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick21.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(0, Settings.brick21, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(1, Settings.brick21, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(2, Settings.brick21, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(3, Settings.brick21, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(4, Settings.brick21, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(5, Settings.brick21, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(6, Settings.brick21, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(7, Settings.brick21, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(8, Settings.brick21, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(9, Settings.brick21, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(10, Settings.brick21, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(11, Settings.brick21, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(12, Settings.brick21, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(13, Settings.brick21, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(14, Settings.brick21, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(15, Settings.brick21, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(16, Settings.brick21, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(17, Settings.brick21, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(18, Settings.brick21, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(19, Settings.brick21, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(20, Settings.brick21, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(21, Settings.brick21, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(22, Settings.brick21, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(23, Settings.brick21, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(24, Settings.brick21, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(25, Settings.brick21, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(26, Settings.brick21, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick21.Field.ToString() + " " + CanMoveBrick(27, Settings.brick21, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_7_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick22.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(0, Settings.brick22, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(1, Settings.brick22, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(2, Settings.brick22, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(3, Settings.brick22, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(4, Settings.brick22, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(5, Settings.brick22, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(6, Settings.brick22, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(7, Settings.brick22, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(8, Settings.brick22, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(9, Settings.brick22, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(10, Settings.brick22, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(11, Settings.brick22, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(12, Settings.brick22, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(13, Settings.brick22, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(14, Settings.brick22, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(15, Settings.brick22, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(16, Settings.brick22, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(17, Settings.brick22, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(18, Settings.brick22, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(19, Settings.brick22, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(20, Settings.brick22, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(21, Settings.brick22, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(22, Settings.brick22, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(23, Settings.brick22, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(24, Settings.brick22, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(25, Settings.brick22, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(26, Settings.brick22, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick21.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick22.Field.ToString() + " " + CanMoveBrick(27, Settings.brick22, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_8_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick23.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(0, Settings.brick23, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(1, Settings.brick23, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(2, Settings.brick23, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(3, Settings.brick23, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(4, Settings.brick23, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(5, Settings.brick23, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(6, Settings.brick23, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(7, Settings.brick23, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(8, Settings.brick23, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(9, Settings.brick23, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(10, Settings.brick23, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(11, Settings.brick23, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(12, Settings.brick23, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(13, Settings.brick23, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(14, Settings.brick23, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(15, Settings.brick23, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(16, Settings.brick23, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(17, Settings.brick23, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(18, Settings.brick23, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(19, Settings.brick23, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(20, Settings.brick23, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(21, Settings.brick23, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(22, Settings.brick23, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(23, Settings.brick23, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(24, Settings.brick23, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(25, Settings.brick23, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(26, Settings.brick23, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick22.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick23.Field.ToString() + " " + CanMoveBrick(27, Settings.brick23, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_9_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick24.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(0, Settings.brick24, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(1, Settings.brick24, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(2, Settings.brick24, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(3, Settings.brick24, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(4, Settings.brick24, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(5, Settings.brick24, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(6, Settings.brick24, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(7, Settings.brick24, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(8, Settings.brick24, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(9, Settings.brick24, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(10, Settings.brick24, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(11, Settings.brick24, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(12, Settings.brick24, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(13, Settings.brick24, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(14, Settings.brick24, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(15, Settings.brick24, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(16, Settings.brick24, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(17, Settings.brick24, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(18, Settings.brick24, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(19, Settings.brick24, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(20, Settings.brick24, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(21, Settings.brick24, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(22, Settings.brick24, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(23, Settings.brick24, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(24, Settings.brick24, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(25, Settings.brick24, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(26, Settings.brick24, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick23.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick24.Field.ToString() + " " + CanMoveBrick(27, Settings.brick24, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_10_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick25.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(0, Settings.brick25, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(1, Settings.brick25, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(2, Settings.brick25, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(3, Settings.brick25, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(4, Settings.brick25, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(5, Settings.brick25, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(6, Settings.brick25, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(7, Settings.brick25, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(8, Settings.brick25, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(9, Settings.brick25, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(10, Settings.brick25, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(11, Settings.brick25, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(12, Settings.brick25, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(13, Settings.brick25, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(14, Settings.brick25, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(15, Settings.brick25, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(16, Settings.brick25, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(17, Settings.brick25, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(18, Settings.brick25, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(19, Settings.brick25, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(20, Settings.brick25, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(21, Settings.brick25, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(22, Settings.brick25, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(23, Settings.brick25, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(24, Settings.brick25, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(24, Settings.brick25, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(26, Settings.brick25, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick24.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick25.Field.ToString() + " " + CanMoveBrick(27, Settings.brick25, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_11_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick26.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(0, Settings.brick26, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(1, Settings.brick26, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(2, Settings.brick26, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(3, Settings.brick26, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(4, Settings.brick26, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(5, Settings.brick26, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(6, Settings.brick26, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(7, Settings.brick26, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(8, Settings.brick26, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(9, Settings.brick26, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(10, Settings.brick26, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(11, Settings.brick26, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(12, Settings.brick26, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(13, Settings.brick26, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(14, Settings.brick26, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(15, Settings.brick26, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(16, Settings.brick26, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(17, Settings.brick26, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(18, Settings.brick26, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(19, Settings.brick26, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(20, Settings.brick26, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(21, Settings.brick26, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(22, Settings.brick26, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(23, Settings.brick26, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(24, Settings.brick26, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(25, Settings.brick26, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(26, Settings.brick26, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick25.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick26.Field.ToString() + " " + CanMoveBrick(27, Settings.brick26, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_12_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick27.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(0, Settings.brick27, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(1, Settings.brick27, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(2, Settings.brick27, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(3, Settings.brick27, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(4, Settings.brick27, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(5, Settings.brick27, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(6, Settings.brick27, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(7, Settings.brick27, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(8, Settings.brick27, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(9, Settings.brick27, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(10, Settings.brick27, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(11, Settings.brick27, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(12, Settings.brick27, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(13, Settings.brick27, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(14, Settings.brick27, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(15, Settings.brick27, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(16, Settings.brick27, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(17, Settings.brick27, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(18, Settings.brick27, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(19, Settings.brick27, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(20, Settings.brick27, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(21, Settings.brick27, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(22, Settings.brick27, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(23, Settings.brick27, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(24, Settings.brick27, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(25, Settings.brick27, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(26, Settings.brick27, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick26.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick27.Field.ToString() + " " + CanMoveBrick(27, Settings.brick27, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_13_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick28.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(0, Settings.brick28, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(1, Settings.brick28, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(2, Settings.brick28, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(3, Settings.brick28, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(4, Settings.brick28, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(5, Settings.brick28, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(6, Settings.brick28, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(7, Settings.brick28, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(8, Settings.brick28, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(9, Settings.brick28, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(10, Settings.brick28, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(11, Settings.brick28, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(12, Settings.brick28, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(13, Settings.brick28, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(14, Settings.brick28, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(15, Settings.brick28, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(16, Settings.brick28, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(17, Settings.brick28, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(18, Settings.brick28, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(19, Settings.brick28, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(20, Settings.brick28, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(21, Settings.brick28, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(22, Settings.brick28, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(23, Settings.brick28, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(24, Settings.brick28, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(25, Settings.brick28, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
-                brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(26, Settings.brick28, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick28.Field.ToString() + " " + CanMoveBrick(27, Settings.brick28, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_14_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick29.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(0, Settings.brick29, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(1, Settings.brick29, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(2, Settings.brick29, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(3, Settings.brick29, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(4, Settings.brick29, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(5, Settings.brick29, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(6, Settings.brick29, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(7, Settings.brick29, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(8, Settings.brick29, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(9, Settings.brick29, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(10, Settings.brick29, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(11, Settings.brick29, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(12, Settings.brick29, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(13, Settings.brick29, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(14, Settings.brick29, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(15, Settings.brick29, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(16, Settings.brick29, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(17, Settings.brick29, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(18, Settings.brick29, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(19, Settings.brick29, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(20, Settings.brick29, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(21, Settings.brick29, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(22, Settings.brick29, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(23, Settings.brick29, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(24, Settings.brick29, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(25, Settings.brick29, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick27.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(26, Settings.brick29, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick2.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick29.Field.ToString() + " " + CanMoveBrick(27, Settings.brick29, brickList));
             }
-
-
-
         }
 
         private void pictureBoxBlack_15_Click(object sender, EventArgs e)
         {
 
-            int fieldknr = Settings.brick1.Field;
-            if (fieldknr == 0)
+            int fieldnr = Settings.brick30.Field;
+            if (fieldnr == 0)
             {
                 brickList = Settings.field0.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(0, Settings.brick30, brickList));
             }
-            if (fieldknr == 1)
+            if (fieldnr == 1)
             {
                 brickList = Settings.field1.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(1, Settings.brick30, brickList));
             }
-            if (fieldknr == 2)
+            if (fieldnr == 2)
             {
                 brickList = Settings.field2.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(2, Settings.brick30, brickList));
             }
-            if (fieldknr == 3)
+            if (fieldnr == 3)
             {
                 brickList = Settings.field3.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(3, Settings.brick30, brickList));
             }
-            if (fieldknr == 4)
+            if (fieldnr == 4)
             {
                 brickList = Settings.field4.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(4, Settings.brick30, brickList));
             }
-            if (fieldknr == 5)
+            if (fieldnr == 5)
             {
                 brickList = Settings.field5.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(5, Settings.brick30, brickList));
             }
-            if (fieldknr == 6)
+            if (fieldnr == 6)
             {
                 brickList = Settings.field6.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(6, Settings.brick30, brickList));
             }
-            if (fieldknr == 7)
+            if (fieldnr == 7)
             {
                 brickList = Settings.field7.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(7, Settings.brick30, brickList));
             }
-            if (fieldknr == 8)
+            if (fieldnr == 8)
             {
                 brickList = Settings.field8.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(8, Settings.brick30, brickList));
             }
-            if (fieldknr == 9)
+            if (fieldnr == 9)
             {
                 brickList = Settings.field9.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(9, Settings.brick30, brickList));
             }
-            if (fieldknr == 10)
+            if (fieldnr == 10)
             {
                 brickList = Settings.field10.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(10, Settings.brick30, brickList));
             }
-            if (fieldknr == 11)
+            if (fieldnr == 11)
             {
                 brickList = Settings.field11.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(11, Settings.brick30, brickList));
             }
-            if (fieldknr == 12)
+            if (fieldnr == 12)
             {
                 brickList = Settings.field12.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(12, Settings.brick30, brickList));
             }
-            if (fieldknr == 13)
+            if (fieldnr == 13)
             {
                 brickList = Settings.field13.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(13, Settings.brick30, brickList));
             }
-            if (fieldknr == 14)
+            if (fieldnr == 14)
             {
                 brickList = Settings.field14.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(14, Settings.brick30, brickList));
             }
-            if (fieldknr == 15)
+            if (fieldnr == 15)
             {
                 brickList = Settings.field15.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(15, Settings.brick30, brickList));
             }
-            if (fieldknr == 16)
+            if (fieldnr == 16)
             {
                 brickList = Settings.field16.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(16, Settings.brick30, brickList));
             }
-            if (fieldknr == 17)
+            if (fieldnr == 17)
             {
                 brickList = Settings.field17.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(17, Settings.brick30, brickList));
             }
-            if (fieldknr == 18)
+            if (fieldnr == 18)
             {
                 brickList = Settings.field18.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick1.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(18, Settings.brick30, brickList));
             }
-            if (fieldknr == 19)
+            if (fieldnr == 19)
             {
                 brickList = Settings.field19.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(19, Settings.brick30, brickList));
             }
-            if (fieldknr == 20)
+            if (fieldnr == 20)
             {
                 brickList = Settings.field20.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(20, Settings.brick30, brickList));
             }
-            if (fieldknr == 21)
+            if (fieldnr == 21)
             {
                 brickList = Settings.field21.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(21, Settings.brick30, brickList));
             }
-            if (fieldknr == 22)
+            if (fieldnr == 22)
             {
                 brickList = Settings.field22.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(22, Settings.brick30, brickList));
             }
-            if (fieldknr == 23)
+            if (fieldnr == 23)
             {
                 brickList = Settings.field23.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(23, Settings.brick30, brickList));
             }
-            if (fieldknr == 24)
+            if (fieldnr == 24)
             {
                 brickList = Settings.field24.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(24, Settings.brick30, brickList));
             }
-            if (fieldknr == 25)
+            if (fieldnr == 25)
             {
                 brickList = Settings.field25.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(25, Settings.brick30, brickList));
             }
-            if (fieldknr == 26)
+            if (fieldnr == 26)
             {
                 brickList = Settings.field26.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(26, Settings.brick30, brickList));
             }
-            if (fieldknr == 27)
+            if (fieldnr == 27)
             {
                 brickList = Settings.field27.GetListBricks();
-                int numberofBricksonfield = brickList.Count();
-
-                if (numberofBricksonfield != 0)
-                {
-                    Bricks brick = brickList[numberofBricksonfield - 1];
-                    if (brick.BrickNr.ToString() == Settings.brick28.BrickNr.ToString())
-                    {
-                        MessageBox.Show("You can move");
-                    }
-                    else
-                    {
-                        MessageBox.Show("You can not move");
-                    }
-                }
+                MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(27, Settings.brick30, brickList));
             }
-
-
-
         }
-
     }
 }
 
