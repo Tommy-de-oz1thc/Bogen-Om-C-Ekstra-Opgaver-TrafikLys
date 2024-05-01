@@ -245,16 +245,16 @@ namespace BackGammon
                 // Tjek om den sidste brik er den samme som den aktuelle brik
                 if (lastBrick.BrickNr == brick.BrickNr)
                 {
-                    MessageBox.Show("You can move.");
+                    MessageBox.Show("You can move. Current Turn is: " + currentTurn + " " + brickList.Count() + " " + fieldNumber + " " + brick.BrickNr.ToString());
                     return true; // Brikken må flyttes, da den er den sidste på feltet
                 }
             }
-            MessageBox.Show("You can not move");
+            MessageBox.Show("You can not move " + brickList.Count() + " " + fieldNumber + " " + brick.BrickNr.ToString());
             return false; // Brikken må ikke flyttes
         }
 
 
-
+        #region White PictureBox
         private void pictureBoxWhite_1_Click(object sender, EventArgs e)
         {
           
@@ -399,11 +399,9 @@ namespace BackGammon
             {
                 brickList = Settings.field27.GetListBricks();
                 MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick1.Field.ToString() + " " + CanMoveBrick(27, Settings.brick1, brickList));
-            }
-           
-            
-
+            }        
         }
+
         private void pictureBoxWhite_2_Click(object sender, EventArgs e)
         {
             int fieldnr = Settings.brick2.Field;
@@ -551,7 +549,6 @@ namespace BackGammon
             }
 
         }
-
 
         private void pictureBoxWhite_3_Click(object sender, EventArgs e)
         {
@@ -1135,9 +1132,6 @@ namespace BackGammon
                 brickList = Settings.field27.GetListBricks();
                 MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick6.Field.ToString() + " " + CanMoveBrick(27, Settings.brick6, brickList));
             }
-
-
-
         }
 
         private void pictureBoxWhite_7_Click(object sender, EventArgs e)
@@ -2453,6 +2447,8 @@ namespace BackGammon
                 MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick15.Field.ToString() + " " + CanMoveBrick(27, Settings.brick15, brickList));
             }
         }
+        #endregion
+        #region Black PictureBox
 
         private void pictureBoxBlack_1_Click(object sender, EventArgs e)
         {
@@ -4642,6 +4638,7 @@ namespace BackGammon
                 MessageBox.Show(brickList.Count.ToString() + " " + Settings.brick30.Field.ToString() + " " + CanMoveBrick(27, Settings.brick30, brickList));
             }
         }
+        #endregion
     }
 }
 
