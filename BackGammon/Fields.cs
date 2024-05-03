@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static BackGammon.Bricks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace BackGammon
 {
     public class Fields
     {
+       
         private List<Bricks> listBricks = new List<Bricks>();
-        public BrickColor colorBricksonField { set; get; }
+       
         public int NR { set; get; }
         public Fields(int nr) { 
             NR = nr;
@@ -23,6 +25,14 @@ namespace BackGammon
         {
             listBricks.Add(brick);
         }
+
+        public void RemoveListBricks()
+        {
+            listBricks.RemoveAt(listBricks.Count - 1);
+        }
+
+        public void ClearList()
+        { listBricks.Clear(); }
 
         public List<Bricks> GetListBricks()
         {

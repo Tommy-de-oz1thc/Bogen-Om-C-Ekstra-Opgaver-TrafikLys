@@ -100,15 +100,7 @@ namespace BackGammon
                 case 27:
                     brick.X = Settings.cordinates[27].x;
                     break;
-                case 28:
-                    brick.X = Settings.cordinates[28].x;
-                    break;
-                case 29:
-                    brick.X = Settings.cordinates[29].x;
-                    break;
-                case 30:
-                    brick.X = Settings.cordinates[30].x;
-                    break;
+               
             }
             return brick;
         }
