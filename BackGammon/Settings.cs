@@ -10,6 +10,7 @@ namespace BackGammon
     {
         // Opret en tuple med 24 koordinater
         public static (int x, int y)[] cordinates = new (int, int)[28];
+        public static (int x, int y)[] startcordinates = new (int, int)[31];
         public static List<int> y_heigh = [0, 35, 70, 105, 140, 175, 210, 245, 270];
 
         public static Fields field0 = new Fields();
@@ -114,5 +115,43 @@ namespace BackGammon
             
         }
 
+        public void Startstartcodinates()
+        {
+
+            // Tilføj koordinater til tuplen
+         
+            startcordinates[1] = (998, 632);
+            startcordinates[2] = (1034, 632);
+            startcordinates[3] = (1070, 632);
+            startcordinates[4] = (1106, 632);
+            startcordinates[5] = (1142, 632);
+            startcordinates[6] = (998, 594);
+            startcordinates[7] = (1034, 594);
+            startcordinates[8] = (1070, 594);
+            startcordinates[9] = (1106, 594);
+            startcordinates[10] = (1142, 594);
+            startcordinates[11] = (998, 556);
+            startcordinates[12] = (1034, 556);
+            startcordinates[13] = (1070, 556);
+            startcordinates[14] = (1106, 556);
+            startcordinates[15] = (1142, 556);
+            startcordinates[16] = (998, 117);
+            startcordinates[17] = (1034, 117);
+            startcordinates[18] = (1070, 117);
+            startcordinates[19] = (1106, 117);
+            startcordinates[20] = (1142, 117);
+            startcordinates[21] = (998, 155);
+            startcordinates[22] = (1034, 155);
+            startcordinates[23] = (1070, 155);
+            startcordinates[24] = (1106, 155);
+            startcordinates[25] = (1142, 155);
+            startcordinates[26] = (998, 193);
+            startcordinates[27] = (1034, 193);
+            startcordinates[28] = (1070, 193);
+            startcordinates[29] = (1106, 193);
+            startcordinates[30] = (1142, 193);
+
+
+        }
     }
 }

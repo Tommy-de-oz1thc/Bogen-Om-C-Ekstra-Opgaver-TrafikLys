@@ -71,11 +71,12 @@
             pictureBoxTurnWhite = new PictureBox();
             labelTurn = new Label();
             labelVersion = new Label();
-            checkBoxPC = new CheckBox();
+            checkBoxPCWhite = new CheckBox();
             checkBoxPictureBox = new CheckBox();
             checkBoxCanMove = new CheckBox();
             checkBoxAllMoves = new CheckBox();
             checkBoxPossibleMoves = new CheckBox();
+            checkBoxPCBlack = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBoard).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBlack_1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxWhite_1).BeginInit();
@@ -431,7 +432,7 @@
             btnTerning_1.Name = "btnTerning_1";
             btnTerning_1.Size = new Size(77, 65);
             btnTerning_1.TabIndex = 36;
-            btnTerning_1.Text = "Terning";
+            btnTerning_1.Text = "Dice";
             btnTerning_1.UseVisualStyleBackColor = true;
             btnTerning_1.Click += btnTerning_1_Click;
             // 
@@ -441,7 +442,7 @@
             btnTerning_2.Name = "btnTerning_2";
             btnTerning_2.Size = new Size(77, 65);
             btnTerning_2.TabIndex = 37;
-            btnTerning_2.Text = "Terning";
+            btnTerning_2.Text = "Dice";
             btnTerning_2.UseVisualStyleBackColor = true;
             btnTerning_2.Click += btnTerning_2_Click;
             // 
@@ -489,15 +490,16 @@
             labelVersion.TabIndex = 42;
             labelVersion.Text = "Under Construction: Version 2.0";
             // 
-            // checkBoxPC
+            // checkBoxPCWhite
             // 
-            checkBoxPC.AutoSize = true;
-            checkBoxPC.Location = new Point(1015, 86);
-            checkBoxPC.Name = "checkBoxPC";
-            checkBoxPC.Size = new Size(76, 19);
-            checkBoxPC.TabIndex = 43;
-            checkBoxPC.Text = "PC Player";
-            checkBoxPC.UseVisualStyleBackColor = true;
+            checkBoxPCWhite.AutoSize = true;
+            checkBoxPCWhite.Location = new Point(998, 487);
+            checkBoxPCWhite.Name = "checkBoxPCWhite";
+            checkBoxPCWhite.Size = new Size(110, 19);
+            checkBoxPCWhite.TabIndex = 43;
+            checkBoxPCWhite.Text = "PC Player White";
+            checkBoxPCWhite.UseVisualStyleBackColor = true;
+            checkBoxPCWhite.CheckedChanged += checkBoxPCWhite_CheckedChanged;
             // 
             // checkBoxPictureBox
             // 
@@ -530,7 +532,7 @@
             checkBoxAllMoves.AutoSize = true;
             checkBoxAllMoves.Checked = true;
             checkBoxAllMoves.CheckState = CheckState.Checked;
-            checkBoxAllMoves.Location = new Point(1106, 86);
+            checkBoxAllMoves.Location = new Point(1003, 77);
             checkBoxAllMoves.Name = "checkBoxAllMoves";
             checkBoxAllMoves.Size = new Size(147, 19);
             checkBoxAllMoves.TabIndex = 46;
@@ -551,16 +553,28 @@
             checkBoxPossibleMoves.UseVisualStyleBackColor = true;
             checkBoxPossibleMoves.CheckedChanged += checkBoxPossibleMoves_CheckedChanged;
             // 
+            // checkBoxPCBlack
+            // 
+            checkBoxPCBlack.AutoSize = true;
+            checkBoxPCBlack.Location = new Point(998, 277);
+            checkBoxPCBlack.Name = "checkBoxPCBlack";
+            checkBoxPCBlack.Size = new Size(107, 19);
+            checkBoxPCBlack.TabIndex = 48;
+            checkBoxPCBlack.Text = "PC Player Black";
+            checkBoxPCBlack.UseVisualStyleBackColor = true;
+            checkBoxPCBlack.CheckedChanged += checkBoxPCBlack_CheckedChanged;
+            // 
             // GameLogic
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 801);
+            Controls.Add(checkBoxPCBlack);
             Controls.Add(checkBoxPossibleMoves);
             Controls.Add(checkBoxAllMoves);
             Controls.Add(checkBoxCanMove);
             Controls.Add(checkBoxPictureBox);
-            Controls.Add(checkBoxPC);
+            Controls.Add(checkBoxPCWhite);
             Controls.Add(labelVersion);
             Controls.Add(labelTurn);
             Controls.Add(pictureBoxTurnWhite);
@@ -687,10 +701,11 @@
         private PictureBox pictureBoxTurnWhite;
         private Label labelTurn;
         private Label labelVersion;
-        private CheckBox checkBoxPC;
+        private CheckBox checkBoxPCWhite;
         private CheckBox checkBoxPictureBox;
         private CheckBox checkBoxCanMove;
         private CheckBox checkBoxAllMoves;
         private CheckBox checkBoxPossibleMoves;
+        private CheckBox checkBoxPCBlack;
     }
 }

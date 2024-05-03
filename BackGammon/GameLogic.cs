@@ -15,7 +15,7 @@ namespace BackGammon
         Settings set = new();
         private bool run = false;
         SetCordinates setCor = new();
-
+        private bool is_game_Running = false;
         private bool terning_1_is_used = false, terning_2_is_used = false;
         private Turn currentTurn;
         private Random rand = new Random();
@@ -34,7 +34,7 @@ namespace BackGammon
             point16, point17, point18, point19, point20, point21, point22, point23, point24, point25, point26, point27, point28, point29, point30;
 
         int i = 0;
-
+        PC pc = new PC();
         public GameLogic()
         {
             set.Cordinates();
@@ -199,10 +199,17 @@ namespace BackGammon
             btnTerning_1.Enabled = true;
             btnTerning_2.Enabled = true;
             setLocationPictureBox();
+            is_game_Running = true;
 
+            if (checkBoxPCWhite.Checked)
+            {
+                pc.White(this);
+            }
 
-            if (checkBoxPC.Checked)
-            { PC pc = new PC(this); }
+            if (checkBoxPCBlack.Checked)
+            {
+                pc.Black(this);
+            }
 
         }
 
@@ -244,11 +251,11 @@ namespace BackGammon
                 usedterninger++;
                 if (Settings.field0.GetListBricks().Count == 15)
                 {
-                    if (show_on_Bar) { MessageBox.Show("Black is the Winder!"); }
+                    if (show_on_Bar) { MessageBox.Show("Black is the Winder!"); is_game_Running = false; btnTerning_1.Text = "Dice"; btnTerning_2.Text = "Dice"; }
                 }
                 if (Settings.field27.GetListBricks().Count == 15)
                 {
-                    if (show_on_Bar) { MessageBox.Show("White is the Winder"!); }
+                    if (show_on_Bar) { MessageBox.Show("White is the Winder"!); is_game_Running = false; btnTerning_1.Text = "Dice"; btnTerning_2.Text = "Dice"; }
                 }
                 if (usedterninger == 2)
                 {
@@ -283,188 +290,191 @@ namespace BackGammon
             int fromFieldnr = fromField.NR;
             int toFieldnr = toField.NR;
 
-
-
-            // Remove the brick from the starting field
-            fromField.RemoveListBricks();
-            if (toFieldnr <= 0)
+            if (is_game_Running)
             {
-                Settings.field0.AddListBricks(brick);
-                brick.X = Settings.cordinates[0].x;
-                brick.Y = Settings.cordinates[0].y;
-                return brick;
 
-            }
-            if (toFieldnr >= 25)
-            {
-                Settings.field27.AddListBricks(brick);
-                brick.X = Settings.cordinates[27].x;
-                brick.Y = Settings.cordinates[27].y;
-                return brick;
-            }
-            // Update brick's field and coordinates
-            brick.Field = toFieldnr;
-
-            // Check if there is already a brick on the destination field
-            List<Bricks> listBricks = toField.GetListBricks();
-            if (listBricks.Count == 1)
-            {
-                // Get the existing brick on the destination field
-                Bricks existingBrick = listBricks[0];
-                toField.RemoveListBricks(); // Remove the existing brick from the field
-                if (existingBrick.Color != brick.Color)
+                // Remove the brick from the starting field
+                fromField.RemoveListBricks();
+                if (toFieldnr <= 0)
                 {
+                    Settings.field0.AddListBricks(brick);
+                    brick.X = Settings.startcordinates[brick.BrickNr].x;
+                    brick.Y = Settings.startcordinates[brick.BrickNr].y;
+
+                    return brick;
+
+                }
+                if (toFieldnr >= 25)
+                {
+                    Settings.field27.AddListBricks(brick);
+                    brick.X = Settings.startcordinates[brick.BrickNr].x;
+                    brick.Y = Settings.startcordinates[brick.BrickNr].y;
+                    return brick;
+                }
+                // Update brick's field and coordinates
+                brick.Field = toFieldnr;
+
+                // Check if there is already a brick on the destination field
+                List<Bricks> listBricks = toField.GetListBricks();
+                if (listBricks.Count == 1)
+                {
+                    // Get the existing brick on the destination field
+                    Bricks existingBrick = listBricks[0];
+                    toField.RemoveListBricks(); // Remove the existing brick from the field
+                    if (existingBrick.Color != brick.Color)
+                    {
 
 
-                    // Add the existing brick to the appropriate captured field
-                    if (existingBrick.Color == Bricks.BrickColor.White)
-                    {
-                        Settings.field25.AddListBricks(existingBrick);
-                        int tal = existingBrick.BrickNr;
-                        switch (tal)
+                        // Add the existing brick to the appropriate captured field
+                        if (existingBrick.Color == Bricks.BrickColor.White)
                         {
-                            case 1:
-                                Settings.brick1.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick1.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 2:
-                                Settings.brick2.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick2.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 3:
-                                Settings.brick3.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick3.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 4:
-                                Settings.brick4.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick4.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 5:
-                                Settings.brick5.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick5.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 6:
-                                Settings.brick6.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick6.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 7:
-                                Settings.brick7.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick7.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 8:
-                                Settings.brick8.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick8.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 9:
-                                Settings.brick9.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick9.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 10:
-                                Settings.brick10.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick10.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 11:
-                                Settings.brick11.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick11.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 12:
-                                Settings.brick12.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick12.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 13:
-                                Settings.brick13.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick13.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 14:
-                                Settings.brick14.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick14.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
-                            case 15:
-                                Settings.brick15.X = Settings.cordinates[Settings.field25.NR].x;
-                                Settings.brick15.Y = Settings.cordinates[Settings.field25.NR].y;
-                                break;
+                            Settings.field25.AddListBricks(existingBrick);
+                            int tal = existingBrick.BrickNr;
+                            switch (tal)
+                            {
+                                case 1:
+                                    Settings.brick1.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick1.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 2:
+                                    Settings.brick2.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick2.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 3:
+                                    Settings.brick3.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick3.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 4:
+                                    Settings.brick4.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick4.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 5:
+                                    Settings.brick5.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick5.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 6:
+                                    Settings.brick6.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick6.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 7:
+                                    Settings.brick7.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick7.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 8:
+                                    Settings.brick8.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick8.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 9:
+                                    Settings.brick9.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick9.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 10:
+                                    Settings.brick10.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick10.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 11:
+                                    Settings.brick11.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick11.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 12:
+                                    Settings.brick12.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick12.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 13:
+                                    Settings.brick13.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick13.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 14:
+                                    Settings.brick14.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick14.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                                case 15:
+                                    Settings.brick15.X = Settings.cordinates[Settings.field25.NR].x;
+                                    Settings.brick15.Y = Settings.cordinates[Settings.field25.NR].y;
+                                    break;
+                            }
                         }
-                    }
-                    else
-                    {
-                        Settings.field26.AddListBricks(existingBrick);
-                        // Update coordinates for the existing brick
-                        int tal = existingBrick.BrickNr;
-                        switch (tal)
+                        else
                         {
-                            case 16:
-                                Settings.brick16.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick16.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 17:
-                                Settings.brick17.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick17.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 18:
-                                Settings.brick18.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick18.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 19:
-                                Settings.brick19.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick19.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 20:
-                                Settings.brick20.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick20.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 21:
-                                Settings.brick21.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick21.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 22:
-                                Settings.brick22.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick22.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 23:
-                                Settings.brick23.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick23.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 24:
-                                Settings.brick24.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick24.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 25:
-                                Settings.brick25.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick25.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 26:
-                                Settings.brick26.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick26.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 27:
-                                Settings.brick27.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick27.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 28:
-                                Settings.brick28.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick28.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 29:
-                                Settings.brick29.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick29.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
-                            case 30:
-                                Settings.brick30.X = Settings.cordinates[Settings.field26.NR].x;
-                                Settings.brick30.Y = Settings.cordinates[Settings.field26.NR].y;
-                                break;
+                            Settings.field26.AddListBricks(existingBrick);
+                            // Update coordinates for the existing brick
+                            int tal = existingBrick.BrickNr;
+                            switch (tal)
+                            {
+                                case 16:
+                                    Settings.brick16.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick16.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 17:
+                                    Settings.brick17.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick17.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 18:
+                                    Settings.brick18.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick18.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 19:
+                                    Settings.brick19.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick19.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 20:
+                                    Settings.brick20.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick20.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 21:
+                                    Settings.brick21.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick21.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 22:
+                                    Settings.brick22.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick22.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 23:
+                                    Settings.brick23.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick23.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 24:
+                                    Settings.brick24.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick24.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 25:
+                                    Settings.brick25.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick25.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 26:
+                                    Settings.brick26.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick26.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 27:
+                                    Settings.brick27.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick27.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 28:
+                                    Settings.brick28.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick28.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 29:
+                                    Settings.brick29.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick29.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                                case 30:
+                                    Settings.brick30.X = Settings.cordinates[Settings.field26.NR].x;
+                                    Settings.brick30.Y = Settings.cordinates[Settings.field26.NR].y;
+                                    break;
+                            }
+                            existingBrick.X = Settings.cordinates[Settings.field26.NR].x;
+                            existingBrick.Y = Settings.cordinates[Settings.field26.NR].y;
                         }
-                        existingBrick.X = Settings.cordinates[Settings.field26.NR].x;
-                        existingBrick.Y = Settings.cordinates[Settings.field26.NR].y;
                     }
                 }
+                // Get the height for y-coordinate adjustment
+                int y = getYHieght(toField);
+                brick.X = Settings.cordinates[toFieldnr].x;
+                brick.Y = Settings.cordinates[toFieldnr].y + y;
+                // Add the moved brick to the destination field
+                toField.AddListBricks(brick);
+                CheckChangeTurn();
             }
-            // Get the height for y-coordinate adjustment
-            int y = getYHieght(toField);
-            brick.X = Settings.cordinates[toFieldnr].x;
-            brick.Y = Settings.cordinates[toFieldnr].y + y;
-            // Add the moved brick to the destination field
-            toField.AddListBricks(brick);
-            CheckChangeTurn();
             return brick;
         }
 
@@ -13740,6 +13750,16 @@ namespace BackGammon
             {
                 show_Can_Move = false;
             }
+        }
+
+        private void checkBoxPCBlack_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxPCWhite_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
