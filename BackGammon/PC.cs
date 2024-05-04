@@ -42,11 +42,12 @@ namespace BackGammon
                     bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
                     if (canMove)
                     {
-                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
+                       
                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                         gameLogic.setLocationPictureBox();
-                        
-                    }
+                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
+
+                }
                     else 
                     {
                         gameLogic.setTering_1_Enable();
@@ -67,11 +68,12 @@ namespace BackGammon
                     bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
                     if (canMove)
                     {
-                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
+                        
                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                         gameLogic.setLocationPictureBox();
-                        
-                    }
+                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
+
+                }
                     else
                     {
                         gameLogic.setTering_2_Enable();
