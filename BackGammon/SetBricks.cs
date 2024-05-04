@@ -20,7 +20,7 @@ namespace BackGammon
             Settings.brick7 = new Bricks(7, "White", Settings.cordinates[12].x, Settings.cordinates[12].y + Settings.y_heigh[4], 12);
             Settings.brick8 = new Bricks(8, "White", Settings.cordinates[17].x, Settings.cordinates[17].y - Settings.y_heigh[0], 17);
             Settings.brick9 = new Bricks(9, "White", Settings.cordinates[17].x, Settings.cordinates[17].y - Settings.y_heigh[1], 17);
-            Settings.brick10 = new Bricks(10, "White", Settings.cordinates[17].x, Settings.cordinates[17].y -  Settings.y_heigh[2], 17);
+            Settings.brick10 = new Bricks(10, "White", Settings.cordinates[17].x, Settings.cordinates[17].y - Settings.y_heigh[2], 17);
             Settings.brick11 = new Bricks(11, "White", Settings.cordinates[19].x, Settings.cordinates[19].y - Settings.y_heigh[0], 19);
             Settings.brick12 = new Bricks(12, "White", Settings.cordinates[19].x, Settings.cordinates[19].y - Settings.y_heigh[1], 19);
             Settings.brick13 = new Bricks(13, "White", Settings.cordinates[19].x, Settings.cordinates[19].y - Settings.y_heigh[2], 19);

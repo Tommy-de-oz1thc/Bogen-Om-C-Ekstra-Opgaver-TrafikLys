@@ -12,7 +12,7 @@ namespace BackGammon
 
         public void Ryst()
         {
-            number = 2;// rand.Next(1, 7);
+            number = rand.Next(1, 7);
             
         }
 

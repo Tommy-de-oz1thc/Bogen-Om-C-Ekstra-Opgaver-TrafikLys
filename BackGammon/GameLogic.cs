@@ -9,7 +9,7 @@ namespace BackGammon
     public partial class GameLogic : Form
     {
         enum Turn { White, Black }
-
+        List<Terning> _rafleList = new List<Terning> ();
         Random random = new Random();
         GameManager gameManager = new GameManager();
         Settings set = new();
@@ -27,6 +27,8 @@ namespace BackGammon
         private bool show_on_Bar = true;
         private bool show_Can_Move = true;
         public static bool show_terninger = true;
+        private bool pcWhitePlayer = false, pcBlackPlayer = false;
+
         int usedterninger = 0;
         int barBlack = 0;
         int barWhite = 0;
@@ -163,7 +165,7 @@ namespace BackGammon
         private void Terninger()
         {
             gameManager.Terninger();
-            List<Terning> _rafleList = gameManager.getRafleList();
+            _rafleList = gameManager.getRafleList();
             btnTerning_1.Text = _rafleList[0].GetTerning().ToString();
             btnTerning_2.Text = _rafleList[1].GetTerning().ToString();
             var (rafletotal, dice1, dice2) = gameManager.GetPossibleMoves(currentTurn.ToString());
@@ -174,15 +176,30 @@ namespace BackGammon
                 terning_2_is_used = true;
                 brick_is_moved = true;
                 gameManager.set_is_terning_double(false);
+            
                 CheckChangeTurn();
             }
         }
 
+        public void setTering_1_Enable()
+        {
+            btnTerning_1.Enabled = true;
+            terning_1_is_used = false;
+        }
+        public void setTering_2_Enable()
+        {
+            btnTerning_2.Enabled = true;
+            terning_2_is_used= false;
+        }
+        public void setMomvedBrick()
+        {
+            brick_is_moved = false;
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             SetBricks setBricks = new();
-            currentTurn = Turn.Black;//(Turn)rand.Next(2);
+            currentTurn = (Turn)rand.Next(2);
             if (currentTurn == Turn.White)
             {
                 pictureBoxTurnBlack.Visible = false;
@@ -201,19 +218,12 @@ namespace BackGammon
             setLocationPictureBox();
             is_game_Running = true;
 
-            if (checkBoxPCWhite.Checked)
-            {
-                pc.White(this);
-            }
-
-            if (checkBoxPCBlack.Checked)
-            {
-                pc.Black(this);
-            }
-
+           
+            
+            CheckChangeTurn();
         }
 
-        private void btnTerning_1_Click(object sender, EventArgs e)
+        public void btnTerning_1_Click(object sender, EventArgs e)
         {
 
             if (brick_is_moved)
@@ -227,7 +237,7 @@ namespace BackGammon
             }
         }
 
-        private void btnTerning_2_Click(object sender, EventArgs e)
+        public void btnTerning_2_Click(object sender, EventArgs e)
         {
             if (brick_is_moved)
             {
@@ -240,8 +250,31 @@ namespace BackGammon
             }
         }
 
-        private void CheckChangeTurn()
+        private void checkPCPlayer()
         {
+            if ((pcBlackPlayer)&&(currentTurn == Turn.Black))
+            {
+                pc.Game(this, "Black");
+            }
+            if ((pcWhitePlayer)&&(currentTurn == Turn.White)) 
+            {
+                pc.Game(this, "White");
+            }
+        }
+
+
+        public void CheckChangeTurn()
+        {
+           
+            var possibleTurns = gameManager.GetPossibleMoves(currentTurn.ToString());
+            if (possibleTurns.dice_1_Moves.Count == 0)
+            {
+                terning_1_is_used |= true;
+            }
+            if (possibleTurns.dice_2_Moves.Count == 0)
+            {
+                terning_2_is_used |= true;
+            }
             if ((terning_1_is_used && terning_2_is_used) && brick_is_moved)
             {
                 btnTerning_1.Enabled = true;
@@ -262,6 +295,7 @@ namespace BackGammon
                     gameManager.set_is_terning_double(false);
                     usedterninger = 0;
                 }
+                
                 if (!gameManager.get_is_terning_double())
                 {
                     if (currentTurn == Turn.White)
@@ -269,17 +303,24 @@ namespace BackGammon
                         pictureBoxTurnBlack.Visible = true;
                         pictureBoxTurnWhite.Visible = false;
                         currentTurn = Turn.Black;
-                        Terninger();
+                       
+                        
                     }
-                }
-                else
-                {
-                    pictureBoxTurnBlack.Visible = false;
-                    pictureBoxTurnWhite.Visible = true;
-                    currentTurn = Turn.White;
+                    else
+                    {
+                        pictureBoxTurnBlack.Visible = false;
+                        pictureBoxTurnWhite.Visible = true;
+                        currentTurn = Turn.White;
+                       
+                       
+                    }
+                    btnTerning_1.Enabled = true;
+                    btnTerning_2.Enabled = true;
                     Terninger();
                 }
+               
             }
+            checkPCPlayer();
         }
 
 
@@ -473,23 +514,27 @@ namespace BackGammon
                 brick.Y = Settings.cordinates[toFieldnr].y + y;
                 // Add the moved brick to the destination field
                 toField.AddListBricks(brick);
-                CheckChangeTurn();
+                
+            
+            CheckChangeTurn();
             }
             return brick;
         }
 
 
-        private int getYHieght(Fields toField)
+        public int getYHieght(Fields toField)
         {
-            int y_hieght = 0;
+            int y_height = 0;
             List<Bricks> listBricks = toField.GetListBricks();
             int num = listBricks.Count();
-            y_hieght = Settings.y_heigh[num];
-            return y_hieght;
+            y_height = Settings.y_heigh[num];
+            if(toField.NR > 12)
+            { y_height *= -1; }
+            return y_height;
         }
 
 
-        private Fields getToField(int fromField, Bricks brick)
+        public Fields getToField(int fromField, Bricks brick)
         {
             Fields toField = new Fields();
 
@@ -13752,15 +13797,31 @@ namespace BackGammon
             }
         }
 
-        private void checkBoxPCBlack_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkBoxPCWhite_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxPCWhite.Checked)
+            {
+                pcWhitePlayer = true;
+            }
+            else 
+            {
+                pcWhitePlayer = false;
+            }
         }
+
+        private void checkBoxPCBlack_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPCBlack.Checked)
+            {
+                pcBlackPlayer = true;
+            }
+            else 
+            {
+                pcBlackPlayer = false;
+            }
+        }
+
+      
     }
 }
 

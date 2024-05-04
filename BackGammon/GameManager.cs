@@ -1,17 +1,18 @@
 ﻿ using System;
  using System.Collections.Generic;
- namespace BackGammon
+namespace BackGammon
 {
     public class GameManager
     {
-        private List<Terning> _rafleList = new List<Terning>();
-        private string currentTurn = "White"; // Gem den aktuelle tur i GameManager
+        private static List<Terning> _rafleList = new List<Terning>();
+        private string currentTurn = ""; // Gem den aktuelle tur i GameManager
         private bool is_terning_double = false;
         public RafleBæger rafle = new RafleBæger(2);
         public GameManager() { }
 
         public (List<Move> possibleMoves, List<Move> dice_1_Moves, List<Move> dice_2_Moves) GetPossibleMoves(string currentTurn)
         {
+            this.currentTurn = currentTurn;
             List<Move> possibleMoves = new List<Move>();
             List<Move> dice_1_Moves = new List<Move>();
             List<Move> dice_2_Moves = new List<Move>();
@@ -77,7 +78,7 @@
                             // Tilføj et træk til listen over mulige træk
                             if (GameLogic.show_terninger)
                             {
-                                MessageBox.Show("Bricknr: " + brick.BrickNr + "  CurrentField: " + currentField + " TargetField: " + targetField + " Dice: " + dice);
+                                MessageBox.Show("Bricknr: " + brick.BrickNr + "  CurrentField: " + currentField + " TargetField: " + targetField + " Dice: " + dice + " CurrentTurn: " + currentTurn);
                             }
                             if (dice == _rafleList[0].GetTerning())
                             {
@@ -121,7 +122,7 @@
             }
         }
 
-        
+
         public Fields GetField(int fieldnr)
         {
             Fields field = new Fields();
@@ -215,6 +216,12 @@
             }
             return field;
         }
-    }
 
+       
+
+
+
+    }
 }
+
+
