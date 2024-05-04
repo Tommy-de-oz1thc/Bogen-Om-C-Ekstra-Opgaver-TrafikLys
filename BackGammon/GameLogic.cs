@@ -296,7 +296,7 @@ namespace BackGammon
                 {
                     if (show_on_Bar) { MessageBox.Show("White is the Winder"!); is_game_Running = false; btnTerning_1.Text = "Dice"; btnTerning_2.Text = "Dice"; }
                 }
-                if (usedterninger == 2)
+                if (usedterninger == 4)
                 {
                     gameManager.set_is_terning_double(false);
                     usedterninger = 0;
@@ -340,6 +340,32 @@ namespace BackGammon
 
             if (is_game_Running)
             {
+                if (fromFieldnr == 25 || fromFieldnr == 26)
+                {
+                    // Check if there are bricks available in the bar field
+                    List<Bricks> barBricks = fromField.GetListBricks();
+                    if (barBricks.Count > 0)
+                    {
+                        var takeOut = TakeOutofBars(fromFieldnr);
+                        toFieldnr = takeOut.Item2;
+                        // Remove a brick from the bar field
+                        Bricks removedBrick = barBricks[0];
+                        fromField.RemoveListBricks();
+
+                        // Determine the destination field based on the bar field
+                        int destinationFieldNr = (fromFieldnr == 25) ? (toFieldnr + 1) : (toFieldnr - 1);
+
+                        // Add the removed brick to the destination field
+                        Fields destinationField = gameManager.GetField(destinationFieldNr);
+                        destinationField.AddListBricks(removedBrick);
+
+                        // Update coordinates for the removed brick
+                        removedBrick.X = Settings.cordinates[destinationFieldNr].x;
+                        removedBrick.Y = Settings.cordinates[destinationFieldNr].y;
+
+                        // Check for capturing or other game rules here if needed
+                    }
+                }
                 // Remove the brick from the starting field
                 fromField.RemoveListBricks();
                 if (toFieldnr <= 0)
@@ -585,12 +611,14 @@ namespace BackGammon
             if (brick.Color == Bricks.BrickColor.White)
             {
                 if (Settings.field25.GetListBricks().Count > 0)
-                { MessageBox.Show("You have to move out of Bars before moving other bricks."); return true; }
+                { //MessageBox.Show("You have to move out of Bars before moving other bricks.");
+                    return true; }
             }
             else
             {
                 if (Settings.field26.GetListBricks().Count > 0)
-                { MessageBox.Show("You have to move out of Bars before moving other bricks."); return true; }
+                { //MessageBox.Show("You have to move out of Bars before moving other bricks."); 
+                    return true; }
             }
             return false;
         }
@@ -920,10 +948,18 @@ namespace BackGammon
         }
 
 
-        private bool TakeOutofBars(int Fieldnr,int toFieldnr)
+        private (bool takeout, int toFieldnr) TakeOutofBars(int Fieldnr)
         {
             bool takeout = false;
-         
+            int toFieldnr = 0;
+            if(Fieldnr == 25)
+            {
+                toFieldnr = 0 + aktuelTerning;
+            }
+            if(Fieldnr == 26)
+            {
+                toFieldnr = 25 - aktuelTerning;
+            }
             if(Fieldnr == 0)
             {
                 if((toFieldnr<= 24) && (toFieldnr >= 19))
@@ -934,7 +970,7 @@ namespace BackGammon
                 if ((toFieldnr <= 6) && (toFieldnr >= 0))
                 { takeout = true; }
             }
-            return takeout;
+            return (takeout,toFieldnr);
         }
 
         public bool CanMoveBrick(int fieldNumber, Bricks brick, List<Bricks> brickList)
@@ -958,8 +994,8 @@ namespace BackGammon
 
                         if (fromField.NR == 25 || fromField.NR == 0)
                         {
-                            bool takeout = TakeOutofBars(fromField.NR, toField.NR);
-                            if (!takeout) {return false; }
+                            var takeout = TakeOutofBars(fromField.NR);
+                            if (takeout.Item1) { return true; }
                         }
                         bool cantakeoutBrick = CantakeoutBrick(fromField, toField, brick);
 
