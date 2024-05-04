@@ -489,7 +489,7 @@
             labelVersion.Name = "labelVersion";
             labelVersion.Size = new Size(173, 15);
             labelVersion.TabIndex = 42;
-            labelVersion.Text = "Under Construction: Version 2.0";
+            labelVersion.Text = "Under Construction: Version 3.0";
             // 
             // checkBoxPCWhite
             // 
