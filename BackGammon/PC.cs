@@ -37,9 +37,9 @@ namespace BackGammon
                     Move aktuelMove = list_terning_1[randomIndex];
                     Fields startField = gameManager.GetField(aktuelMove.StartField);
                     Fields toField = gameLogic.getToField(aktuelMove.StartField, aktuelMove.Brick);
+                    findFields_With_1_Brick(aktuelMove, toField, list_terning_1,currentTurn);
                     List<Bricks> brickList = startField.GetListBricks(); // startField.GetListBricks();
-
-                bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
+                    bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
                     if (canMove)
                     {
                         setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
@@ -62,6 +62,7 @@ namespace BackGammon
                     Move aktuelMove = list_terning_2[randomIndex];
                     Fields startField = gameManager.GetField(aktuelMove.StartField);
                     Fields toField = gameLogic.getToField(aktuelMove.StartField, aktuelMove.Brick);
+                    findFields_With_1_Brick(aktuelMove, toField, list_terning_2,currentTurn);
                     List<Bricks> brickList = startField.GetListBricks();
                     bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
                     if (canMove)
@@ -83,6 +84,42 @@ namespace BackGammon
             //MessageBox.Show("PC player: " + currentTurn + " Dice 1: " + terning_1 + " Dice 2: " + terning_2);
             gameLogic.CheckChangeTurn();
         }
+
+        private Move findFields_With_1_Brick(Move aktuelMove,Fields toField,List<Move> listMoves,string currentTurn)
+        {
+            if ((toField.NR != 0) && (toField.NR != 27) && (toField.NR != 25) && (toField.NR != 26))
+            {
+                List<Move> moves = new List<Move>();
+                foreach (Move move in listMoves)
+                {
+                    Fields newTofield = gameManager.GetField(move.EndField);
+                    if (newTofield.GetListBricks().Count == 1)
+                    {
+                        moves.Add(move);
+                    }
+                }
+                if (moves.Count > 0)
+                {
+                    foreach (Move move in moves)
+                    {
+
+
+                        Fields newTofield = gameManager.GetField(move.EndField);
+                        if ((newTofield.GetListBricks().Count >= 2) && (move.Brick.Color.ToString() == currentTurn))
+                        {
+                            moves.Add(move);
+                        }
+                    }
+                }
+                if (moves.Count > 0)
+                {
+                    int randomIndex = random.Next(0, moves.Count);
+                    aktuelMove = moves[randomIndex];
+                }
+            }
+            return aktuelMove;
+        }
+
 
         private void setCordinateBricks(GameLogic gameLogic, int bricknr,int tofieldnr)
         {
