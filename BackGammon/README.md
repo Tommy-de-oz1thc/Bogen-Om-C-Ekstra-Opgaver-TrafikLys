@@ -11,4 +11,6 @@ Jeg kan også få at vide hvor mange brikker der står på et felt og hvad farve
 
 Jeg har også valgt at ligge koden op for at få nogle gode råd fra Michell hvordan jeg kommer videre nu.
 
+Spillet virker som sådan nu, men der er problemer med at tage brikker ud fra bar feltet.
+
 Tommy
