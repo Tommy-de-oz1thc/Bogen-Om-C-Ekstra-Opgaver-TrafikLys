@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
  using System.Collections.Generic;
 namespace BackGammon
 {
@@ -217,8 +217,7 @@ namespace BackGammon
             return field;
         }
 
-       
-
+      
 
 
     }

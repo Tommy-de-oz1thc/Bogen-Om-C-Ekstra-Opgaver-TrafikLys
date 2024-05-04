@@ -308,6 +308,7 @@
             pictureBoxBlack_15.Size = new Size(30, 32);
             pictureBoxBlack_15.TabIndex = 22;
             pictureBoxBlack_15.TabStop = false;
+            pictureBoxBlack_15.Click += pictureBoxBlack_15_Click;
             // 
             // pictureBoxWhite_3
             // 
@@ -504,8 +505,6 @@
             // checkBoxPictureBox
             // 
             checkBoxPictureBox.AutoSize = true;
-            checkBoxPictureBox.Checked = true;
-            checkBoxPictureBox.CheckState = CheckState.Checked;
             checkBoxPictureBox.Location = new Point(998, 247);
             checkBoxPictureBox.Name = "checkBoxPictureBox";
             checkBoxPictureBox.Size = new Size(152, 19);
@@ -517,8 +516,6 @@
             // checkBoxCanMove
             // 
             checkBoxCanMove.AutoSize = true;
-            checkBoxCanMove.Checked = true;
-            checkBoxCanMove.CheckState = CheckState.Checked;
             checkBoxCanMove.Location = new Point(998, 512);
             checkBoxCanMove.Name = "checkBoxCanMove";
             checkBoxCanMove.Size = new Size(149, 19);
@@ -530,8 +527,6 @@
             // checkBoxAllMoves
             // 
             checkBoxAllMoves.AutoSize = true;
-            checkBoxAllMoves.Checked = true;
-            checkBoxAllMoves.CheckState = CheckState.Checked;
             checkBoxAllMoves.Location = new Point(1003, 77);
             checkBoxAllMoves.Name = "checkBoxAllMoves";
             checkBoxAllMoves.Size = new Size(147, 19);
@@ -543,8 +538,6 @@
             // checkBoxPossibleMoves
             // 
             checkBoxPossibleMoves.AutoSize = true;
-            checkBoxPossibleMoves.Checked = true;
-            checkBoxPossibleMoves.CheckState = CheckState.Checked;
             checkBoxPossibleMoves.Location = new Point(1003, 696);
             checkBoxPossibleMoves.Name = "checkBoxPossibleMoves";
             checkBoxPossibleMoves.Size = new Size(176, 19);

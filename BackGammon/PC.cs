@@ -43,9 +43,8 @@ namespace BackGammon
                     if (canMove)
                     {
                        
+                        setBricks(gameLogic,startField, toField, aktuelMove, brickList);
                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
-                       
-                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
                         gameLogic.setLocationPictureBox();
                     }
                     else 
@@ -69,10 +68,11 @@ namespace BackGammon
                     if (canMove)
                     {
                         
-                        gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
-                       
-                        setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
-                        gameLogic.setLocationPictureBox();
+                        
+                         setBricks(gameLogic,startField, toField, aktuelMove, brickList);
+                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
+
+                         gameLogic.setLocationPictureBox();
 
                     }
                     else
@@ -123,132 +123,103 @@ namespace BackGammon
             return aktuelMove;
         }
 
-
-        private void setCordinateBricks(GameLogic gameLogic, int bricknr,int tofieldnr)
+        private void setBricks(GameLogic gameLogic, Fields startField, Fields toField, Move aktuelMove, List<Bricks> brickList)
         {
-            Fields toField = new Fields();
-            toField = gameManager.GetField(tofieldnr);
-            int y = gameLogic.getYHieght(toField);
-
-            switch (bricknr)
+            switch (aktuelMove.Brick.BrickNr)
             {
-                case 1:         
-                    Settings.brick1.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick1.Y = Settings.cordinates[tofieldnr].y + y;
+                case 1:
+                    Settings.brick1 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 2:
-                    Settings.brick2.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick2.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick2 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 3:
-                    Settings.brick3.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick3.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick3 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 4:
-                    Settings.brick4.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick4.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick4 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 5:
-                    Settings.brick5.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick5.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick5 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 6:
-                    Settings.brick6.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick6.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick6 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 7:
-                    Settings.brick7.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick7.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick7 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 8:
-                    Settings.brick8.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick8.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick8 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 9:
-                    Settings.brick9.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick9.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick9 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 10:
-                    Settings.brick10.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick10.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick10 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 11:
-                    Settings.brick11.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick11.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick11 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 12:
-                    Settings.brick12.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick12.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick12 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 13:
-                    Settings.brick13.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick13.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick13 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 14:
-                    Settings.brick14.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick14.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick14 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 15:
-                    Settings.brick15.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick15.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick15 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 16:
-                    Settings.brick16.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick16.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick16 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 17:
-                    Settings.brick17.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick17.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick17 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 18:
-                    Settings.brick18.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick18.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick18 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 19:
-                    Settings.brick19.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick19.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick19 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 20:
-                    Settings.brick20.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick20.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick20 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 21:
-                    Settings.brick21.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick21.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick21 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 22:
-                    Settings.brick22.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick22.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick22 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
+                    break;
+                case 23:
+                    Settings.brick23 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 24:
-                    Settings.brick24.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick24.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick24 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 25:
-                    Settings.brick25.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick25.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick25 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 26:
-                    Settings.brick26.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick26.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick26 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 27:
-                    Settings.brick27.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick27.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick27 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 28:
-                    Settings.brick28.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick28.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick28 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 29:
-                    Settings.brick29.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick29.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick29 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
                 case 30:
-                    Settings.brick30.X = Settings.cordinates[tofieldnr].x;
-                    Settings.brick30.Y = Settings.cordinates[tofieldnr].y + y;
+                    Settings.brick30 = gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
                     break;
+
             }
         }
+        
     }
 }

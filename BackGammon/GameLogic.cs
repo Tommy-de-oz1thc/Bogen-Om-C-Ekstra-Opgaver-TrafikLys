@@ -22,11 +22,11 @@ namespace BackGammon
         List<Bricks> brickList = new List<Bricks>();
         private int aktuelTerning = 0;
         private bool brick_is_moved = false;
-        private bool show_PictureBox = true;
-        private bool show_possible_Moves = true;
+        private bool show_PictureBox = false;
+        private bool show_possible_Moves = false;
         private bool show_on_Bar = true;
-        private bool show_Can_Move = true;
-        public static bool show_terninger = true;
+        private bool show_Can_Move = false;
+        public static bool show_terninger = false;
         private bool pcWhitePlayer = false, pcBlackPlayer = false;
 
         int usedterninger = 0;
@@ -317,13 +317,14 @@ namespace BackGammon
                     btnTerning_1.Enabled = true;
                     btnTerning_2.Enabled = true;
                     Terninger();
-                }
+                               }
                
             }
+           
             checkPCPlayer();
         }
 
-
+      
 
         public Bricks MoveBrick(Fields fromField, Fields toField, Bricks brick, List<Bricks> brickList)
         {
@@ -333,7 +334,6 @@ namespace BackGammon
 
             if (is_game_Running)
             {
-
                 // Remove the brick from the starting field
                 fromField.RemoveListBricks();
                 if (toFieldnr <= 0)
@@ -361,11 +361,11 @@ namespace BackGammon
                 {
                     // Get the existing brick on the destination field
                     Bricks existingBrick = listBricks[0];
-                    toField.RemoveListBricks(); // Remove the existing brick from the field
+                    
                     if (existingBrick.Color != brick.Color)
                     {
 
-
+                        toField.RemoveListBricks(); // Remove the existing brick from the field
                         // Add the existing brick to the appropriate captured field
                         if (existingBrick.Color == Bricks.BrickColor.White)
                         {
@@ -508,15 +508,18 @@ namespace BackGammon
                         }
                     }
                 }
+
+               
                 // Get the height for y-coordinate adjustment
                 int y = getYHieght(toField);
                 brick.X = Settings.cordinates[toFieldnr].x;
                 brick.Y = Settings.cordinates[toFieldnr].y + y;
                 // Add the moved brick to the destination field
                 toField.AddListBricks(brick);
-                
-            
-            CheckChangeTurn();
+
+
+
+                CheckChangeTurn();
             }
             return brick;
         }
@@ -586,7 +589,7 @@ namespace BackGammon
             return false;
         }
 
-        public bool CantakeoutBrick(Fields fromField, Bricks brick)
+        public bool CantakeoutBrick(Fields fromField, Fields toField,Bricks brick)
         {
 
             if ((brick.Color == Bricks.BrickColor.White) && (fromField.NR + aktuelTerning > 24))
@@ -910,6 +913,24 @@ namespace BackGammon
             return true;
         }
 
+
+        private bool TakeOutofBars(int Fieldnr,int toFieldnr)
+        {
+            bool takeout = false;
+         
+            if(Fieldnr == 0)
+            {
+                if((toFieldnr<= 24) && (toFieldnr >= 19))
+                { takeout = true; }
+            }
+            else if (Fieldnr == 25)
+            {
+                if ((toFieldnr <= 6) && (toFieldnr >= 0))
+                { takeout = true; }
+            }
+            return takeout;
+        }
+
         public bool CanMoveBrick(int fieldNumber, Bricks brick, List<Bricks> brickList)
         {
             // Tjek om der er nogen brikker på feltet
@@ -928,7 +949,13 @@ namespace BackGammon
                         if (is_blocked) { if (show_Can_Move) { MessageBox.Show("You can not move " + brickList.Count() + " " + fieldNumber + " " + brick.BrickNr.ToString()); }; return false; }
                         Fields fromField = gameManager.GetField(fieldNumber);
                         Fields toField = getToField(fieldNumber, brick);
-                        bool cantakeoutBrick = CantakeoutBrick(fromField, brick);
+
+                        if (fromField.NR == 25 || fromField.NR == 0)
+                        {
+                            bool takeout = TakeOutofBars(fromField.NR, toField.NR);
+                            if (!takeout) {return false; }
+                        }
+                        bool cantakeoutBrick = CantakeoutBrick(fromField, toField, brick);
 
                         bool bar = is_on_bar(brick);
                         if (bar) { return false; }

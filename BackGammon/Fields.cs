@@ -28,7 +28,10 @@ namespace BackGammon
 
         public void RemoveListBricks()
         {
-            listBricks.RemoveAt(listBricks.Count - 1);
+            if (listBricks.Count > 0)
+            {
+                listBricks.RemoveAt(listBricks.Count - 1);
+            }
         }
 
         public void ClearList()
