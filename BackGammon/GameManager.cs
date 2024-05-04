@@ -8,14 +8,17 @@ namespace BackGammon
         private string currentTurn = ""; // Gem den aktuelle tur i GameManager
         private bool is_terning_double = false;
         public RafleBæger rafle = new RafleBæger(2);
+        List<Move> possibleMoves = new List<Move>();
+        List<Move> dice_1_Moves = new List<Move>();
+        List<Move> dice_2_Moves = new List<Move>();
         public GameManager() { }
-
+        Fields field = new Fields();
         public (List<Move> possibleMoves, List<Move> dice_1_Moves, List<Move> dice_2_Moves) GetPossibleMoves(string currentTurn)
         {
             this.currentTurn = currentTurn;
-            List<Move> possibleMoves = new List<Move>();
-            List<Move> dice_1_Moves = new List<Move>();
-            List<Move> dice_2_Moves = new List<Move>();
+            possibleMoves.Clear();
+            dice_1_Moves.Clear();
+            dice_2_Moves.Clear();
 
             // Loop gennem alle felter
             for (int i = 0; i <= 27; i++)
@@ -41,9 +44,10 @@ namespace BackGammon
 
         private (List<Move> possibleMoves, List<Move> dice_1_Moves, List<Move> dice_2_Moves) GeneratePossibleMoves(Bricks brick, int currentField)
         {
-            List<Move> possibleMoves = new List<Move>();
-            List<Move> dice_1_Moves = new List<Move>();
-            List<Move> dice_2_Moves = new List<Move>();
+            this.currentTurn = currentTurn;
+            possibleMoves.Clear();
+            dice_1_Moves.Clear();
+            dice_2_Moves.Clear();
 
             // Tjek om det aktuelle felt er et gyldigt startpunkt for brikken
             if (currentField != brick.Field)
@@ -64,7 +68,7 @@ namespace BackGammon
                     targetField = currentField - dice;
                 }
                 // Tjek om målfeltet er inden for brættets grænser (0 til 27)
-                if ((targetField <= 27) && (targetField >= 0))
+                if ((targetField <= 24) && (targetField >= 0))
                 {
                     // Tjek om målfeltet er tomt eller indeholder brikker af samme farve
                     Fields targetFieldObj = GetField(targetField);
@@ -73,6 +77,7 @@ namespace BackGammon
                     {
                         // Tjek om den sidste brik på det aktuelle felt matcher den aktuelle brik
                         List<Bricks> currentBricks = currentFieldObj.GetListBricks();
+                        int lastBricknr = currentBricks.Last().BrickNr;
                         if ((currentBricks.Count > 0 && currentBricks.Last().BrickNr == brick.BrickNr) && (brick.Color.ToString() == currentTurn))
                         {
                             // Tilføj et træk til listen over mulige træk
@@ -82,13 +87,21 @@ namespace BackGammon
                             }
                             if (dice == _rafleList[0].GetTerning())
                             {
-                                dice_1_Moves.Add(new Move(brick, currentField, targetField, dice));
-                                possibleMoves.Add(new Move(brick, currentField, targetField, dice));
+                                try
+                                {
+                                    dice_1_Moves.Add(new Move(brick, currentField, targetField, dice));
+                                    possibleMoves.Add(new Move(brick, currentField, targetField, dice));
+                                }
+                                catch (Exception ex) { }
                             }
                             if (dice == _rafleList[1].GetTerning())
                             {
-                                dice_2_Moves.Add(new Move(brick, currentField, targetField, dice));
-                                possibleMoves.Add(new Move(brick, currentField, targetField, dice));
+                                try
+                                {
+                                    dice_2_Moves.Add(new Move(brick, currentField, targetField, dice));
+                                    possibleMoves.Add(new Move(brick, currentField, targetField, dice));
+                                }
+                                catch (Exception ex) { }
                             }
                         }
                     }
@@ -125,7 +138,7 @@ namespace BackGammon
 
         public Fields GetField(int fieldnr)
         {
-            Fields field = new Fields();
+          
 
             switch (fieldnr)
             {

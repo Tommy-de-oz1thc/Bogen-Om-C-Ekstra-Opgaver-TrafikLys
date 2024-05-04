@@ -166,8 +166,12 @@ namespace BackGammon
         {
             gameManager.Terninger();
             _rafleList = gameManager.getRafleList();
+         
+            
             btnTerning_1.Text = _rafleList[0].GetTerning().ToString();
             btnTerning_2.Text = _rafleList[1].GetTerning().ToString();
+            
+           
             var (rafletotal, dice1, dice2) = gameManager.GetPossibleMoves(currentTurn.ToString());
             if (show_possible_Moves) { MessageBox.Show($"Total possible moves: {rafletotal.Count}, Dice 1 moves: {dice1.Count}, Dice 2 moves: {dice2.Count}"); }
             if (rafletotal.Count == 0)
@@ -181,17 +185,17 @@ namespace BackGammon
             }
         }
 
-        public void setTering_1_Enable()
+        public void setTerning_1_Enable()
         {
             btnTerning_1.Enabled = true;
             terning_1_is_used = false;
         }
-        public void setTering_2_Enable()
+        public void setTerning_2_Enable()
         {
             btnTerning_2.Enabled = true;
             terning_2_is_used= false;
         }
-        public void setMomvedBrick()
+        public void setMovedBrick()
         {
             brick_is_moved = false;
         }
@@ -13826,25 +13830,41 @@ namespace BackGammon
 
         private void checkBoxPCWhite_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPCWhite.Checked)
+            if (!checkBoxPCBlack.Checked)
+            {
+                if (checkBoxPCWhite.Checked)
             {
                 pcWhitePlayer = true;
             }
-            else 
+            else
             {
                 pcWhitePlayer = false;
+            }
+        }
+             else
+            {
+                MessageBox.Show("Yo can not choose both PC to play both players.");
+                checkBoxPCWhite.Checked = false;
             }
         }
 
         private void checkBoxPCBlack_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPCBlack.Checked)
+            if (!checkBoxPCWhite.Checked)
             {
-                pcBlackPlayer = true;
+                if (checkBoxPCBlack.Checked)
+                {
+                    pcBlackPlayer = true;
+                }
+                else
+                {
+                    pcBlackPlayer = false;
+                }
             }
-            else 
+            else
             {
-                pcBlackPlayer = false;
+                MessageBox.Show("Yo can not choose both PC to play both players.");
+                checkBoxPCBlack.Checked = false;
             }
         }
 

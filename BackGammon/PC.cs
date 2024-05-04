@@ -13,6 +13,7 @@ namespace BackGammon
 
         GameManager gameManager = new GameManager();
         Random random = new Random();
+        List<Move> moves = new List<Move>();
         public PC() 
         {
            
@@ -33,53 +34,69 @@ namespace BackGammon
                 {
                     gameLogic.btnTerning_1_Click(null, EventArgs.Empty);
                     List<Move> list_terning_1 = numberofTurns.dice_1_Moves;
-                    int randomIndex = random.Next(0, list_terning_1.Count);
-                    Move aktuelMove = list_terning_1[randomIndex];
-                    Fields startField = gameManager.GetField(aktuelMove.StartField);
-                    Fields toField = gameLogic.getToField(aktuelMove.StartField, aktuelMove.Brick);
-                    findFields_With_1_Brick(aktuelMove, toField, list_terning_1,currentTurn);
-                    List<Bricks> brickList = startField.GetListBricks(); // startField.GetListBricks();
-                    bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
-                    if (canMove)
+                    try
+                    {
+                        int randomIndex = random.Next(0, list_terning_1.Count);
+                        Move aktuelMove = list_terning_1[randomIndex];
+                    
+                        Fields startField = gameManager.GetField(aktuelMove.StartField);
+                        Fields toField = gameLogic.getToField(aktuelMove.StartField, aktuelMove.Brick);
+                        findFields_With_1_Brick(aktuelMove, toField, list_terning_1,currentTurn);
+                        List<Bricks> brickList = startField.GetListBricks(); // startField.GetListBricks();
+                        bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
+                        if (canMove)
+                        {
+                       
+                            setBricks(gameLogic,startField, toField, aktuelMove, brickList);
+                            gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
+                            gameLogic.setLocationPictureBox();
+                        }
+                        else 
+                        {
+                            gameLogic.setTerning_1_Enable();
+                            gameLogic.setMovedBrick();
+                        }
+                    }
+                    catch (Exception ex)
                     {
                        
-                        setBricks(gameLogic,startField, toField, aktuelMove, brickList);
-                        gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
-                        gameLogic.setLocationPictureBox();
                     }
-                    else 
-                    {
-                        gameLogic.setTering_1_Enable();
-                        gameLogic.setMomvedBrick();
-                    }
-               // MessageBox.Show(aktuelMove.Brick.BrickNr + " " + aktuelMove.StartField + " " + aktuelMove.EndField + " Can move PC: " + canMove);
+                // MessageBox.Show(aktuelMove.Brick.BrickNr + " " + aktuelMove.StartField + " " + aktuelMove.EndField + " Can move PC: " + canMove);
                 }
                 else
                 {
                     gameLogic.btnTerning_2_Click(null, EventArgs.Empty);
                     List<Move> list_terning_2 = numberofTurns.dice_2_Moves;
+                try
+                {
                     int randomIndex = random.Next(0, list_terning_2.Count);
                     Move aktuelMove = list_terning_2[randomIndex];
                     Fields startField = gameManager.GetField(aktuelMove.StartField);
                     Fields toField = gameLogic.getToField(aktuelMove.StartField, aktuelMove.Brick);
-                    findFields_With_1_Brick(aktuelMove, toField, list_terning_2,currentTurn);
+                    findFields_With_1_Brick(aktuelMove, toField, list_terning_2, currentTurn);
                     List<Bricks> brickList = startField.GetListBricks();
                     bool canMove = gameLogic.CanMoveBrick(aktuelMove.StartField, aktuelMove.Brick, brickList);
                     if (canMove)
                     {
-                        
-                        
-                         setBricks(gameLogic,startField, toField, aktuelMove, brickList);
-                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
 
-                         gameLogic.setLocationPictureBox();
+
+                        setBricks(gameLogic, startField, toField, aktuelMove, brickList);
+                        gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
+
+                        gameLogic.setLocationPictureBox();
 
                     }
                     else
                     {
-                        gameLogic.setTering_2_Enable();
-                        gameLogic.setMomvedBrick();
+                        gameLogic.setTerning_2_Enable();
+                        gameLogic.setMovedBrick();
                     }
+                }
+                catch (Exception ex) 
+                {
+
+                   
+                }
               // MessageBox.Show(aktuelMove.Brick.BrickNr + " " + aktuelMove.StartField + " " + aktuelMove.EndField + " Can move PC: " + canMove);
 
                 }
@@ -92,7 +109,8 @@ namespace BackGammon
         {
             if ((toField.NR != 0) && (toField.NR != 27) && (toField.NR != 25) && (toField.NR != 26))
             {
-                List<Move> moves = new List<Move>();
+              ;
+                moves.Clear();
                 foreach (Move move in listMoves)
                 {
                     Fields newTofield = gameManager.GetField(move.EndField);
