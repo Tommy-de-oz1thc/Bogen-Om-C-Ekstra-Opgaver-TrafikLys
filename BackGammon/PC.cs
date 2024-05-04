@@ -44,10 +44,10 @@ namespace BackGammon
                     {
                        
                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
-                        gameLogic.setLocationPictureBox();
+                       
                         setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
-
-                }
+                        gameLogic.setLocationPictureBox();
+                    }
                     else 
                     {
                         gameLogic.setTering_1_Enable();
@@ -70,10 +70,11 @@ namespace BackGammon
                     {
                         
                         gameLogic.MoveBrick(startField, toField, aktuelMove.Brick, brickList);
-                        gameLogic.setLocationPictureBox();
+                       
                         setCordinateBricks(gameLogic, aktuelMove.Brick.BrickNr, aktuelMove.EndField);
+                        gameLogic.setLocationPictureBox();
 
-                }
+                    }
                     else
                     {
                         gameLogic.setTering_2_Enable();
