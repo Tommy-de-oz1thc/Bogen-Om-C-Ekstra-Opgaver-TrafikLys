@@ -8,17 +8,15 @@ namespace BackGammon
         private string currentTurn = ""; // Gem den aktuelle tur i GameManager
         private bool is_terning_double = false;
         public RafleBæger rafle = new RafleBæger(2);
-        List<Move> possibleMoves = new List<Move>();
-        List<Move> dice_1_Moves = new List<Move>();
-        List<Move> dice_2_Moves = new List<Move>();
+        
         public GameManager() { }
         Fields field = new Fields();
         public (List<Move> possibleMoves, List<Move> dice_1_Moves, List<Move> dice_2_Moves) GetPossibleMoves(string currentTurn)
         {
             this.currentTurn = currentTurn;
-            possibleMoves.Clear();
-            dice_1_Moves.Clear();
-            dice_2_Moves.Clear();
+            List<Move> possibleMoves = new List<Move>();
+            List<Move> dice_1_Moves = new List<Move>();
+            List<Move> dice_2_Moves = new List<Move>();
 
             // Loop gennem alle felter
             for (int i = 0; i <= 27; i++)
@@ -45,10 +43,10 @@ namespace BackGammon
         private (List<Move> possibleMoves, List<Move> dice_1_Moves, List<Move> dice_2_Moves) GeneratePossibleMoves(Bricks brick, int currentField)
         {
             this.currentTurn = currentTurn;
-            possibleMoves.Clear();
-            dice_1_Moves.Clear();
-            dice_2_Moves.Clear();
 
+            List<Move> possibleMoves = new List<Move>();
+            List<Move> dice_1_Moves = new List<Move>();
+            List<Move> dice_2_Moves = new List<Move>();
             // Tjek om det aktuelle felt er et gyldigt startpunkt for brikken
             if (currentField != brick.Field)
             {
