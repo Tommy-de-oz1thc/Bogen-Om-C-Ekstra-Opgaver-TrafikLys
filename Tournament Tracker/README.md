@@ -1,6 +1,6 @@
 <h1>Tournament Tracker</h1>
 
-Jeg har fuldt en youtube video https://youtu.be/wfWxdh-_k_4?si=2ixaMlPJVfrv0jP0
+Jeg har fuldt en youtube video https://youtu.be/wfWxdh-_k_4?si=2ixaMlPJVfrv0jP0 <br/><br/>
 Det er et System der kan styre en knock out turnering.
 Den tager højde for hvis der er <byes> og et team bare kommer videre uden kamp.
 
